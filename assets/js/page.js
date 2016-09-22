@@ -4,9 +4,7 @@ $( document ).ready( function(){
 
     swiper = new Swiper( 'body', {
         direction : 'horizontal',
-        keyboardControl: true,
-        hashnav : true //vervangen door slideTo want buggy met meer slidesPerView
-
+        keyboardControl: true
     } );
 
     $( window ).resize( function(){
@@ -31,5 +29,28 @@ $( document ).ready( function(){
         swiper.update();
 
     } ).trigger( "resize" );
+
+    switch(window.location.hash){
+        case "#monday":
+        case "#maandag":
+            swiper.slideTo(0);
+            break;
+        case "#tuesday":
+        case "#dinsdag":
+            swiper.slideTo(1);
+            break;
+        case "#woensdag":
+        case "#wednesday":
+            swiper.slideTo(2);
+            break;
+        case "#thursday":
+        case "#donderdag":
+            swiper.slideTo(3);
+            break;
+        case "#friday":
+        case "#vrijdag":
+            swiper.slideTo(4);
+            break;
+    }
 
 } );
