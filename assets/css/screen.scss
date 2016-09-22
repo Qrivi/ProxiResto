@@ -8,14 +8,13 @@ $vegetarian : rgb(145, 255, 136);
 $glutenfree : rgb(220, 143, 66);
 
 html{
-  -moz-box-sizing    : border-box;
-  -webkit-box-sizing : border-box;
-  box-sizing         : border-box;
+  box-sizing : border-box;
 }
 *, *:before, *:after{
-  -moz-box-sizing    : inherit;
-  -webkit-box-sizing : inherit;
-  box-sizing         : inherit;
+  box-sizing                  : inherit;
+  user-select                 : none !important;
+  -webkit-touch-callout       : none !important;
+  -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
 }
 ::selection{
   //background : $colorSelection;
@@ -32,20 +31,18 @@ a{
 // --------------------------------------- //
 // --------------------------------------- //
 body{
-  overflow-x            : hidden;
-  position              : relative;
-  z-index               : 1;
-  background            : url(../img/bg1.jpg) center center fixed;
-  background-size       : cover;
-  min-height            : 100vh;
-  width                 : 100vw;
-  font-family           : "Open Sans", Arial, sans-serif;
-  font-weight           : 300;
-  font-size             : .8em;
-  line-height           : 1.4em;
-  color                 : $dark;
-  user-select           : none;
-  -webkit-touch-callout : none;
+  overflow-x      : hidden;
+  position        : relative;
+  z-index         : 1;
+  background      : url(../img/bg1.jpg) center center fixed;
+  background-size : cover;
+  min-height      : 100vh;
+  width           : 100vw;
+  font-family     : "Open Sans", Arial, sans-serif;
+  font-weight     : 300;
+  font-size       : .8em;
+  line-height     : 1.4em;
+  color           : $dark;
 
   > header{
     background : rgba(255, 255, 255, .1);
