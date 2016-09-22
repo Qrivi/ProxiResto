@@ -2,7 +2,7 @@ var swiper;
 
 $( document ).ready( function(){
 
-    swiper = new Swiper( 'body', {
+    swiper = new Swiper( 'main', {
         direction : 'horizontal',
         pagination : '.swiper-pagination',
         paginationClickable : true,
