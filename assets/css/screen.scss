@@ -29,7 +29,6 @@ a{
 .h{
   display : none !important;
 }
-
 /* --------------------------------------- */
 /* --------------------------------------- */
 body{
@@ -49,12 +48,18 @@ body{
   -webkit-touch-callout : none;
 }
 main{
-  touch-action : pan-y;
-  transition   : all 500ms ease-in-out;
+  touch-action    : pan-y;
+  transition      : all 500ms ease-in-out;
+  display         : flex;
+  align-items     : flex-start;
+  justify-content : space-around;
 
   section{
-    position : relative;
-    overflow : hidden;
+    position      : relative;
+    overflow      : hidden;
+    width         : 250px !important;
+    margin        : 1px;
+    border-radius : 5px;
 
     > *{
       background : rgba(255, 255, 255, .5);
@@ -131,156 +136,110 @@ main > section > h3{
 @media only screen and (min-width : 1295px) {
 
   main{
-    display         : flex;
-    align-items     : flex-start;
-    justify-content : space-around;
-    width           : 100%;
-    max-width       : 1600px;
-    margin          : 0 auto;
-    padding         : 50px 20px;
-
-    section{
-      width         : 250px !important;
-      margin        : 1px;
-      border-radius : 5px;
-    }
+    width     : 100%;
+    max-width : 1800px;
+    margin    : 0 auto;
+    padding   : 50px 20px;
   }
 }
 @media only screen and (max-width : 1294px) and (min-width : 1100px) {
 
   main{
-    display         : flex;
-    align-items     : flex-start;
-    justify-content : space-around;
-    width           : calc(100vw + 100vw / 5);
-    margin          : 0;
-    padding         : 50px 0 50px 60px;
-
-    section{
-      width         : 250px !important;
-      margin        : 1px;
-      border-radius : 5px;
-    }
+    width   : calc(100vw + 100vw / 5);
+    margin  : 0;
+    padding : 50px 0 50px 60px;
   }
 }
 @media only screen and (max-width : 1099px) and (min-width : 650px) {
 
   main{
-    display         : flex;
-    align-items     : flex-start;
-    justify-content : space-around;
-    width           : calc(100vw + 100vw / 5 * 3.2);
-    margin          : 0;
-    padding         : 50px 0 50px 20px;
-
-    section{
-      width         : 250px !important;
-      margin        : 1px;
-      border-radius : 5px;
-    }
+    width   : calc(100vw + 100vw / 5 * 3.2);
+    margin  : 0;
+    padding : 50px 0 50px 20px;
   }
 }
 @media only screen and (max-width : 649px) {
 
   main{
-    display         : flex;
-    align-items     : flex-start;
-    justify-content : space-around;
-    width           : calc(100vw * 5);
-    margin          : 0;
-    padding         : 50px 0;
+    width   : calc(100vw * 5);
+    margin  : 0;
+    padding : 50px 0;
 
     section{
-      width         : 100vw !important;
-      margin        : 1px 25px;
-      border-radius : 5px;
+      width : 100vw !important;
     }
   }
 }
-
-
-
 /* --------------------------------------- */
 /* --------------------------------------- */
 
-
-.swiper-pagination {
-  position: absolute;
-  text-align: center;
-  -webkit-transition: 300ms;
-  -moz-transition: 300ms;
-  -o-transition: 300ms;
-  transition: 300ms;
-  -webkit-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  z-index: 10;
+.swiper-pagination{
+  position           : absolute;
+  text-align         : center;
+  -webkit-transition : 300ms;
+  -moz-transition    : 300ms;
+  -o-transition      : 300ms;
+  transition         : 300ms;
+  -webkit-transform  : translate3d(0, 0, 0);
+  -ms-transform      : translate3d(0, 0, 0);
+  -o-transform       : translate3d(0, 0, 0);
+  transform          : translate3d(0, 0, 0);
+  z-index            : 10;
 }
 .swiper-pagination-fraction,
 .swiper-pagination-custom,
-.swiper-container-horizontal > .swiper-pagination-bullets {
-  bottom: 10px;
-  left: 0;
-  width: 100%;
+.swiper-container-horizontal > .swiper-pagination-bullets{
+  bottom : 10px;
+  left   : 0;
+  width  : 100%;
 }
-.swiper-pagination-bullet {
-  width: 8px;
-  height: 8px;
-  display: inline-block;
-  border-radius: 100%;
-  background: #000;
-  opacity: 0.2;
+.swiper-pagination-bullet{
+  width         : 8px;
+  height        : 8px;
+  display       : inline-block;
+  border-radius : 100%;
+  background    : #000000;
+  opacity       : 0.2;
 }
-button.swiper-pagination-bullet {
-  border: none;
-  margin: 0;
-  padding: 0;
-  box-shadow: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
+button.swiper-pagination-bullet{
+  border             : none;
+  margin             : 0;
+  padding            : 0;
+  box-shadow         : none;
+  -moz-appearance    : none;
+  -ms-appearance     : none;
+  -webkit-appearance : none;
+  appearance         : none;
 }
-.swiper-pagination-clickable .swiper-pagination-bullet {
-  cursor: pointer;
+.swiper-pagination-clickable .swiper-pagination-bullet{
+  cursor : pointer;
 }
-.swiper-pagination-white .swiper-pagination-bullet {
-  background: #fff;
+.swiper-pagination-white .swiper-pagination-bullet{
+  background : #ffffff;
 }
-.swiper-pagination-bullet-active {
-  opacity: 1;
-  background: #007aff;
+.swiper-pagination-bullet-active{
+  opacity    : 1;
+  background : #007aff;
 }
-.swiper-pagination-white .swiper-pagination-bullet-active {
-  background: #fff;
+.swiper-pagination-white .swiper-pagination-bullet-active{
+  background : #ffffff;
 }
-.swiper-pagination-black .swiper-pagination-bullet-active {
-  background: #000;
+.swiper-pagination-black .swiper-pagination-bullet-active{
+  background : #000000;
 }
-.swiper-container-vertical > .swiper-pagination-bullets {
-  right: 10px;
-  top: 50%;
-  -webkit-transform: translate3d(0px, -50%, 0);
-  -moz-transform: translate3d(0px, -50%, 0);
-  -o-transform: translate(0px, -50%);
-  -ms-transform: translate3d(0px, -50%, 0);
-  transform: translate3d(0px, -50%, 0);
+.swiper-container-vertical > .swiper-pagination-bullets{
+  right             : 10px;
+  top               : 50%;
+  -webkit-transform : translate3d(0px, -50%, 0);
+  -moz-transform    : translate3d(0px, -50%, 0);
+  -o-transform      : translate(0px, -50%);
+  -ms-transform     : translate3d(0px, -50%, 0);
+  transform         : translate3d(0px, -50%, 0);
 }
-.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: 5px 0;
-  display: block;
+.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet{
+  margin  : 5px 0;
+  display : block;
 }
-.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: 0 5px;
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet{
+  margin : 0 5px;
 }
-
-
-
-
-
-
-
-
-
-
