@@ -4,7 +4,9 @@ $( document ).ready( function(){
 
     swiper = new Swiper( 'body', {
         direction : 'horizontal',
+        keyboardControl: true,
         hashnav : true //vervangen door slideTo want buggy met meer slidesPerView
+
     } );
 
     $( window ).resize( function(){
