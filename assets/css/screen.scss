@@ -3,7 +3,7 @@
 @import "reset.css";
 
 // colors
-$dark : rgb(11,11,11);
+$dark : rgb(11, 11, 11);
 $vegetarian : rgb(145, 255, 136);
 $glutenfree : rgb(220, 143, 66);
 
@@ -29,8 +29,8 @@ a{
 .h{
   display : none !important;
 }
-/* --------------------------------------- */
-/* --------------------------------------- */
+// --------------------------------------- //
+// --------------------------------------- //
 body{
   overflow              : hidden;
   position              : relative;
@@ -44,10 +44,46 @@ body{
   font-size             : .8em;
   line-height           : 1.4em;
   color                 : $dark;
-  //user-select: none;
+  user-select           : none;
   -webkit-touch-callout : none;
+
+  > header{
+    background : rgba(255, 255, 255, .1);
+    transition : background-color 500ms ease-in-out;
+    position   : relative;
+    z-index    : 2;
+    display    : block;
+    overflow   : hidden;
+    width      : 100vw;
+    height     : 80px;
+
+    &:hover{
+      background : rgba(255, 255, 255, .5);
+    }
+
+    #top{
+      display     : flex;
+      align-items : center;
+      width       : 90vw;
+      max-width   : 1600px;
+      height      : 100%;
+      margin      : 0 auto;
+
+      h1{
+        font-size : 2em;
+
+        span{
+          display   : block;
+          font-size : .6em;
+          text-indent: 20px;
+        }
+      }
+    }
+  }
 }
 #menu{
+  position        : relative;
+  z-index         : 3;
   touch-action    : pan-y;
   transition      : all 500ms ease-in-out;
   display         : flex;
@@ -56,13 +92,14 @@ body{
 
   article{
     position      : relative;
+    z-index       : 4;
     overflow      : hidden;
     width         : 250px !important;
     margin        : 1px;
     border-radius : 5px;
 
     > *{
-      background : rgba(255, 255, 255, .5);
+      background : rgba(255, 255, 255, .7);
       margin-top : 1px;
       padding    : 18px 0;
     }
@@ -74,7 +111,7 @@ body{
       transition       : background-color 750ms;
 
       &:hover{
-        background-color : rgba(255, 255, 255, .3);
+        background-color : rgba(255, 255, 255, .7);
       }
 
       aside{
@@ -139,7 +176,7 @@ body{
     padding   : 50px 20px;
   }
   .swiper-pagination{
-    display: none !important;
+    display : none !important;
   }
 }
 @media only screen and (max-width : 1294px) and (min-width : 1100px) {
@@ -166,13 +203,13 @@ body{
     padding : 50px 0;
 
     article{
-      width : 90vw !important;
-      margin: 0 auto;
+      width  : 90vw !important;
+      margin : 0 auto;
     }
   }
 }
-/* --------------------------------------- */
-/* --------------------------------------- */
+// --------------------------------------- //
+// --------------------------------------- //
 
 .swiper-pagination{
   position           : absolute;
