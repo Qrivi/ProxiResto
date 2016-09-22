@@ -32,7 +32,7 @@ a{
 // --------------------------------------- //
 // --------------------------------------- //
 body{
-  overflow              : hidden;
+  overflow-x            : hidden;
   position              : relative;
   z-index               : 1;
   background            : url(../img/bg1.jpg) center center fixed;
@@ -73,9 +73,9 @@ body{
         font-size : 2em;
 
         span{
-          display   : block;
-          font-size : .6em;
-          text-indent: 20px;
+          display     : block;
+          font-size   : .6em;
+          text-indent : 20px;
         }
       }
     }
@@ -200,7 +200,7 @@ body{
   #menu{
     width   : calc(100vw * 5);
     margin  : 0;
-    padding : 50px 0;
+    padding : 20px 0;
 
     article{
       width  : 90vw !important;
@@ -281,5 +281,6 @@ button.swiper-pagination-bullet{
 .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet{
   margin : 0 5px;
 }
+
 
 
