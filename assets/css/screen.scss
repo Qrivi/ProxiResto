@@ -32,6 +32,9 @@ a{
 /* --------------------------------------- */
 /* --------------------------------------- */
 body{
+  overflow              : hidden;
+  position              : relative;
+  z-index               : 1;
   background            : url(../img/bg1.jpg) center center fixed;
   background-size       : cover;
   min-height            : 100vh;
@@ -41,25 +44,16 @@ body{
   font-size             : .8em;
   line-height           : 1.4em;
   color                 : $dark;
-  cursor                : default !important;
   //user-select: none;
   -webkit-touch-callout : none;
 }
 main{
-  display         : flex;
-  align-items     : flex-start;
-  justify-content : space-around;
-  width           : 100%;
-  max-width       : 1600px;
-  margin          : 0 auto;
-  padding         : 50px 20px;
+  touch-action : pan-y;
+  transition   : all 500ms ease-in-out;
 
   section{
-    position      : relative;
-    overflow      : hidden;
-    width         : 250px;
-    margin        : 1px;
-    border-radius : 5px;
+    position : relative;
+    overflow : hidden;
 
     > *{
       background : rgba(255, 255, 255, .5);
@@ -127,3 +121,92 @@ main{
 main > section > h3{
   display : none;
 }
+// cool
+// cool
+// cool
+// cool
+// cool
+
+@media only screen and (min-width : 1295px) {
+
+  main{
+    display         : flex;
+    align-items     : flex-start;
+    justify-content : space-around;
+    width           : 100%;
+    max-width       : 1600px;
+    margin          : 0 auto;
+    padding         : 50px 20px;
+
+    section{
+      width         : 250px !important;
+      margin        : 1px;
+      border-radius : 5px;
+    }
+  }
+}
+@media only screen and (max-width : 1294px) and (min-width : 1100px) {
+
+  main{
+    display         : flex;
+    align-items     : flex-start;
+    justify-content : space-around;
+    width           : calc(100vw + 100vw / 5);
+    margin          : 0;
+    padding         : 50px 0 50px 60px;
+
+    section{
+      width         : 250px !important;
+      margin        : 1px;
+      border-radius : 5px;
+    }
+  }
+}
+@media only screen and (max-width : 1099px) and (min-width : 650px) {
+
+  main{
+    display         : flex;
+    align-items     : flex-start;
+    justify-content : space-around;
+    width           : calc(100vw + 100vw / 5 * 3.2);
+    margin          : 0;
+    padding         : 50px 0 50px 20px;
+
+    section{
+      width         : 250px !important;
+      margin        : 1px;
+      border-radius : 5px;
+    }
+  }
+}
+@media only screen and (max-width : 649px) {
+
+  main{
+    display         : flex;
+    align-items     : flex-start;
+    justify-content : space-around;
+    width           : calc(100vw * 5);
+    margin          : 0;
+    padding         : 50px 0;
+
+    section{
+      width         : 100vw !important;
+      margin        : 1px 25px;
+      border-radius : 5px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
