@@ -8,6 +8,8 @@
               content="ucll, uc, leuven, limburg, campus, proximus, restaurant, cafetaria, horeservice, omnomnom">
         <meta name="viewport"
               content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable"
+              content="yes">
 
         <title>Studentenrestaurant &ndash; SR M&amp;T</title>
 
@@ -22,11 +24,11 @@
         <header>
             <section id="top">
                 <h1>Studentenrestaurant <span>Campus Proximus</span></h1>
+                <div id="hamburger"><span>&nbsp;</span></div>
             </section>
         </header>
 
         <main>
-
             <section id="menu" class="swiper-wrapper">
                 <h2 class="h">Menu of the week</h2>
 
@@ -202,11 +204,19 @@
                 </article>
             </section>
             <div class="swiper-pagination"></div>
-
         </main>
 
         <footer>
-
+            <nav>
+                <ul>
+                    <li class="prev">
+                        <a>Vorige week</a>
+                    </li>
+                    <li class="next">
+                        <a>Volgende week</a>
+                    </li>
+                </ul>
+            </nav>
         </footer>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
