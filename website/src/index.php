@@ -45,6 +45,10 @@
     $app->get( '/nl/{year}/{week}', function ( Request $request, Response $response ){
         $week = $request->getAttribute( 'week' );
         $year = $request->getAttribute( 'year' );
+
+        if( $week > 52 || $week < 1 || !preg_match( '/^[1-9]{2}-[1-9]{2}$/', $year ) )
+            return $response->withRedirect( $request->getUri()->getBaseUrl() );
+
         $menu = [];
 
         $stmt = $this->pdo->select( [ 'day', 'type', 'name', 'name_en', 'price', 'price_ext', 'veggie' ] )
@@ -61,7 +65,7 @@
             'week'    => $week,
             'year'    => '20' . ( $week > 35 ? substr( $year, 0, 2 ) : substr( $year, -2, 2 ) ),
             'menu'    => $menu
-        ] );
+        ] );                                                         //utf-8 not working on server :/
         return $response->withHeader( 'Content-Type', 'text/html; charset=iso-8859-1' );
     } );
 
