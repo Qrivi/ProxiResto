@@ -4,7 +4,7 @@ var swiper;
 
 $( document ).ready( function(){
 
-    todayString = $.cookie( 'lang' ) == 'en' ? 'Today' : 'Vandaag';
+    todayString = $.cookie( 'lang' ) === 'en' ? 'Today' : 'Vandaag';
 
     swiper = new Swiper( 'main', {
         direction : 'horizontal',
@@ -66,4 +66,15 @@ $( document ).ready( function(){
             break;
     }
 
+    if( /iPad|iPhone|iPod/.test( navigator.userAgent ) && !window.MSStream ){ // is iOS
+        if( 'standalone' in window.navigator && window.navigator.standalone ){ // is standalone
+            // window.location = 'http://labs.krivi.be/proxiresto/#today';
+        }else if( $.cookie( 'addtohomescreen' ) !== 'no' ){
+            //  alert( "Homescreen pls?" );
+            // rip Safari's bars
+            $( 'main' ).css( 'min-height', window.innerHeight - $( 'body > header' ).height() - $( 'body > footer' ).height() );
+        }
+    }
+
+    window.scrollTo( 0, 1 );
 } );
