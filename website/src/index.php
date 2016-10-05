@@ -13,7 +13,7 @@
     $container = $app->getContainer();
     $container['view'] = new \Slim\Views\PhpRenderer( './templates/' );
     $container['pdo'] = new \Slim\PDO\Database( $config['db']['dbms'] . ':' .
-                                                'host:' . $config['db']['dbms'] . ';' .
+                                                'host:' . $config['db']['host'] . ';' .
                                                 'dbname:' . $config['db']['name'] . ';' .
                                                 'charset:' . $config['db']['charset'],
                                                 $config['db']['user'], $config['db']['pass'] );
@@ -31,7 +31,7 @@
         return $response;
     } );
 
-    $app->get( '/', function ( Request $request, Response $response ) use ( $app ){
+    $app->get( '/', function ( Request $request, Response $response ){
         $date = date( 'y' );
         $lang = 'nl'; //TODO get from cookie
 
@@ -62,7 +62,7 @@
             'year'    => '20' . ( $week > 35 ? substr( $year, 0, 2 ) : substr( $year, -2, 2 ) ),
             'menu'    => $menu
         ] );
-        return $response;
+        return $response->withHeader( 'Content-Type', 'text/html; charset=iso-8859-1' );
     } );
 
     $app->run();
