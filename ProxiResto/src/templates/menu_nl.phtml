@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="nl">
+    <?php $root = $request->getUri()->getBaseUrl() . '/public'; ?>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description"
+              content="Wat schaft de pot vandaag in het studentenrestaurant van UCLL's campus Proximus?">
+        <meta name="keywords"
+              content="ucll, uc, leuven, limburg, campus, proximus, restaurant, cafetaria, horeservice, omnomnom">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable"
+              content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style"
+              content="default">
+        <meta name="format-detection"
+              content="telephone=no">
+
+        <title>Studentenrestaurant &ndash; SR M&amp;T</title>
+
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo $root; ?>/assets/img/icon.ico">
+        <link rel="icon" type="image/png" href="<?php echo $root; ?>/assets/img/icon.png">
+
+        <link rel="stylesheet" media="screen" href="<?php echo $root; ?>/assets/css/screen.css">
+    </head>
+
+    <body id="home">
+
+        <header>
+            <section id="top">
+                <h1>Studentenrestaurant <span>Campus Proximus</span></h1>
+                <div id="hamburger"><span>&nbsp;</span></div>
+            </section>
+        </header>
+
+        <main>
+            <section id="menu" class="swiper-wrapper">
+                <h2 class="h">Menu of the week</h2>
+
+                <article id="maandag" class="swiper-slide">
+                    <h2>Maandag
+                        <time
+                            datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) ) ); ?>">
+                            <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) ) ); ?></time>
+                    </h2>
+                    <?php if( !empty( $menu['1'] ) ): ?>
+                        <?php if( !empty( $menu['1']['soup'] ) ): ?>
+                            <ul class="soup">
+                                <?php foreach( $menu['1']['soup'] as $soup ): ?>
+                                    <li>
+                                        <?php echo $soup['name']; ?>
+                                        <span>&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?></span>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <?php if( !empty( $menu['1']['dish'] ) ): ?>
+                            <ul class="dish">
+                                <?php foreach( $menu['1']['dish'] as $dish ): ?>
+                                    <li>
+                                        <?php echo $dish['name']; ?>
+                                        <span>&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?></span>
+                                        <?php if( intval( $dish['veggie'] ) > 0 ): ?>
+                                            <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <?php if( !empty( $menu['1']['snack'] ) ): ?>
+                            <ul class="dish">
+                                <?php foreach( $menu['1']['snack'] as $snack ): ?>
+                                    <li>
+                                        <?php echo $snack['name']; ?>
+                                        <span>&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?></span>
+                                        <?php if( intval( $snack['veggie'] ) > 0 ): ?>
+                                            <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <p>
+                            Restaurant gesloten
+                        </p>
+                    <?php endif; ?>
+                </article>
+                <article id="dinsdag" class="swiper-slide">
+                    <h2>Dinsdag
+                        <time
+                            datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 1 day' ) ); ?>">
+                            <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 1 day' ) ); ?></time>
+                    </h2>
+                    <?php if( !empty( $menu['2'] ) ): ?>
+                        <?php if( !empty( $menu['2']['soup'] ) ): ?>
+                            <ul class="soup">
+                                <?php foreach( $menu['2']['soup'] as $soup ): ?>
+                                    <li>
+                                        <?php echo $soup['name']; ?>
+                                        <span>&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?></span>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <?php if( !empty( $menu['2']['dish'] ) ): ?>
+                            <ul class="dish">
+                                <?php foreach( $menu['2']['dish'] as $dish ): ?>
+                                    <li>
+                                        <?php echo $dish['name']; ?>
+                                        <span>&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?></span>
+                                        <?php if( intval( $dish['veggie'] ) > 0 ): ?>
+                                            <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <?php if( !empty( $menu['2']['snack'] ) ): ?>
+                            <ul class="dish">
+                                <?php foreach( $menu['2']['snack'] as $snack ): ?>
+                                    <li>
+                                        <?php echo $snack['name']; ?>
+                                        <span>&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?></span>
+                                        <?php if( intval( $snack['veggie'] ) > 0 ): ?>
+                                            <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <p>
+                            Restaurant gesloten
+                        </p>
+                    <?php endif; ?>
+                </article>
+                <article id="woensdag" class="swiper-slide">
+                    <h2>Woensdag
+                        <time
+                            datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 2 day' ) ); ?>">
+                            <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 2 day' ) ); ?></time>
+                    </h2>
+                    <?php if( !empty( $menu['3'] ) ): ?>
+                        <?php if( !empty( $menu['3']['soup'] ) ): ?>
+                            <ul class="soup">
+                                <?php foreach( $menu['3']['soup'] as $soup ): ?>
+                                    <li>
+                                        <?php echo $soup['name']; ?>
+                                        <span>&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?></span>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <?php if( !empty( $menu['3']['dish'] ) ): ?>
+                            <ul class="dish">
+                                <?php foreach( $menu['3']['dish'] as $dish ): ?>
+                                    <li>
+                                        <?php echo $dish['name']; ?>
+                                        <span>&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?></span>
+                                        <?php if( intval( $dish['veggie'] ) > 0 ): ?>
+                                            <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <?php if( !empty( $menu['3']['snack'] ) ): ?>
+                            <ul class="dish">
+                                <?php foreach( $menu['3']['snack'] as $snack ): ?>
+                                    <li>
+                                        <?php echo $snack['name']; ?>
+                                        <span>&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?></span>
+                                        <?php if( intval( $snack['veggie'] ) > 0 ): ?>
+                                            <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <p>
+                            Restaurant gesloten
+                        </p>
+                    <?php endif; ?>
+                </article>
+                <article id="donderdag" class="swiper-slide">
+                    <h2>Donderdag
+                        <time
+                            datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 3 day' ) ); ?>">
+                            <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 3 day' ) ); ?></time>
+                    </h2>
+                    <?php if( !empty( $menu['4'] ) ): ?>
+                        <?php if( !empty( $menu['4']['soup'] ) ): ?>
+                            <ul class="soup">
+                                <?php foreach( $menu['4']['soup'] as $soup ): ?>
+                                    <li>
+                                        <?php echo $soup['name']; ?>
+                                        <span>&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?></span>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <?php if( !empty( $menu['4']['dish'] ) ): ?>
+                            <ul class="dish">
+                                <?php foreach( $menu['4']['dish'] as $dish ): ?>
+                                    <li>
+                                        <?php echo $dish['name']; ?>
+                                        <span>&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?></span>
+                                        <?php if( intval( $dish['veggie'] ) > 0 ): ?>
+                                            <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <?php if( !empty( $menu['4']['snack'] ) ): ?>
+                            <ul class="dish">
+                                <?php foreach( $menu['4']['snack'] as $snack ): ?>
+                                    <li>
+                                        <?php echo $snack['name']; ?>
+                                        <span>&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?></span>
+                                        <?php if( intval( $snack['veggie'] ) > 0 ): ?>
+                                            <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <p>
+                            Restaurant gesloten
+                        </p>
+                    <?php endif; ?>
+                </article>
+                <article id="vrijdag" class="swiper-slide">
+                    <h2>Vrijdag
+                        <time
+                            datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 4 day' ) ); ?>">
+                            <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 4 day' ) ); ?></time>
+                    </h2>
+                    <?php if( !empty( $menu['5'] ) ): ?>
+                        <?php if( !empty( $menu['5']['soup'] ) ): ?>
+                            <ul class="soup">
+                                <?php foreach( $menu['5']['soup'] as $soup ): ?>
+                                    <li>
+                                        <?php echo $soup['name']; ?>
+                                        <span>&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?></span>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <?php if( !empty( $menu['5']['dish'] ) ): ?>
+                            <ul class="dish">
+                                <?php foreach( $menu['5']['dish'] as $dish ): ?>
+                                    <li>
+                                        <?php echo $dish['name']; ?>
+                                        <span>&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?></span>
+                                        <?php if( intval( $dish['veggie'] ) > 0 ): ?>
+                                            <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <?php if( !empty( $menu['5']['snack'] ) ): ?>
+                            <ul class="dish">
+                                <?php foreach( $menu['5']['snack'] as $snack ): ?>
+                                    <li>
+                                        <?php echo $snack['name']; ?>
+                                        <span>&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?></span>
+                                        <?php if( intval( $snack['veggie'] ) > 0 ): ?>
+                                            <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
+                                        <?php endif; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <p>
+                            Restaurant gesloten
+                        </p>
+                    <?php endif; ?>
+                </article>
+
+            </section>
+            <div class="swiper-pagination"></div>
+        </main>
+
+        <footer>
+            <nav>
+                <ul><!-- TODO: fix href under/overflow (52 weeks in 1 yearr) -->
+                    <li class="prev">
+                        <a href="<?php echo $week - 1; ?>"><span>Vorige week</span></a>
+                    </li>
+                    <li class="next">
+                        <a href="<?php echo $week + 1; ?>"><span>Volgende week</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo $root; ?>/assets/js/page.js"></script>
+    </body>
+</html>
