@@ -72,7 +72,7 @@ $( document ).ready( function(){
         }else if( $.cookie( 'addtohomescreen' ) !== 'no' ){
             //  alert( "Homescreen pls?" );
             // rip Safari's bars
-            $( 'main' ).css( 'min-height', window.innerHeight - $( 'body > header' ).height() - $( 'body > footer' ).height() );
+            // $( 'main' ).css( 'min-height', window.innerHeight - $( 'body > header' ).height() - $( 'body > footer' ).height() );
         }
     }
 
