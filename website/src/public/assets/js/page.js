@@ -13,15 +13,17 @@ $( document ).ready( function(){
         keyboardControl : true
     } );
 
-    $( 'time' ).each( function(){
+    $( 'time' ).each( function( index ){
         var date = new Date( $( this ).attr( 'datetime' ) );
-        if( date.setHours( 0, 0, 0, 0 ) === today.setHours( 0, 0, 0, 0 ) )
+        if( date.setHours( 0, 0, 0, 0 ) === today.setHours( 0, 0, 0, 0 ) ){
             $( this ).text( todayString );
+            swiper.slideTo( index );
+        }
     } );
 
     $( '#hamburger' ).click( function(){
         $( this ).toggleClass( 'open' );
-        alert( 'Binnenkort opent dit een preference pane waar je dingen kan instellen als je taal en je prijs (extern of student), maar ik moet dit nog schrijven. :(' );
+        $( "#prefs, body > header" ).toggleClass( 'open' );
     } );
 
     $( window ).resize( function(){
