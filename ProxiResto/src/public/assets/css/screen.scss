@@ -1,0 +1,382 @@
+@charset "UTF-8";
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400";
+@import "reset.css";
+
+// colors
+$dark : rgb(11, 11, 11);
+$blue : #007aff; //also in svg!
+$vegetarian : rgb(145, 255, 136);
+$glutenfree : rgb(220, 143, 66);
+
+html{
+  box-sizing : border-box;
+}
+*, *:before, *:after{
+  box-sizing                  : inherit;
+  user-select                 : none !important;
+  -webkit-touch-callout       : none !important;
+  -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+}
+a{
+  color           : inherit;
+  cursor          : pointer;
+  text-decoration : none;
+}
+.h{
+  display : none !important;
+}
+// --------------------------------------- //
+// --------------------------------------- //
+body{
+  overflow-x      : hidden;
+  position        : relative;
+  z-index         : 1;
+  background      : url(../img/bg1.jpg) center center fixed;
+  background-size : cover;
+  min-height      : 100vh;
+  width           : 100vw;
+  max-width       : 100vw;
+  font-family     : "Open Sans", Arial, sans-serif;
+  font-weight     : 300;
+  font-size       : .8em;
+  line-height     : 1.4em;
+  color           : $dark;
+
+  > header{
+    background : rgba(255, 255, 255, .1);
+    transition : background-color 500ms ease-in-out;
+    position   : relative;
+    z-index    : 2;
+    display    : block;
+    overflow   : hidden;
+    width      : 100vw;
+    height     : 80px;
+
+    &:hover{
+      background : rgba(255, 255, 255, .5);
+    }
+
+    #top{
+      display         : flex;
+      align-items     : center;
+      justify-content : space-between;
+      width           : 90vw;
+      max-width       : 1600px;
+      height          : 100%;
+      margin          : 0 auto;
+
+      h1{
+        font-size : 2em;
+        cursor    : default;
+
+        span{
+          display     : block;
+          font-size   : .6em;
+          text-indent : 20px;
+        }
+      }
+
+      #hamburger{
+        cursor  : pointer;
+        padding : 14px 21px 14px 0;
+
+        span, span:before, span:after{
+          border-radius : 1px;
+          height        : 2px;
+          width         : 21px;
+          background    : $dark;
+          position      : absolute;
+          display       : block;
+          content       : " ";
+          speak         : none;
+          transition    : all 500ms ease-in-out;
+        }
+        span:before{
+          top : -7px;
+        }
+        span:after{
+          bottom : -7px;
+        }
+
+        &.open{
+
+          span{
+            background-color : transparent;
+          }
+          span:before, span:after{
+            top : 0;
+          }
+          span:before{
+            transform : rotate(315deg);
+          }
+          span:after{
+            transform : rotate(-315deg);
+          }
+        }
+      }
+    }
+  }
+
+  > footer{
+
+    ul{
+      display         : flex;
+      align-items     : center;
+      justify-content : space-between;
+      width           : 100vw;
+
+      li{
+        position      : relative;
+        width         : 125px;
+        margin        : 10px;
+        background    : rgba(255, 255, 255, .1);
+        transition    : background-color 500ms ease-in-out;
+        border-radius : 5px;
+
+        &:hover{
+          background : rgba(255, 255, 255, .5);
+        }
+
+        a{
+          display : block;
+          padding : 10px 15px;
+        }
+
+        &.prev a{
+          text-align : right;
+        }
+        &.next a{
+          text-align : left;
+        }
+
+        &.prev a:before, &.next a:after{
+          position        : absolute;
+          top             : 8px;
+          left            : 3px;
+          content         : " ";
+          speak           : none;
+          display         : inline-block;
+          width           : 20px;
+          height          : 20px;
+          background-size : contain;
+          background      : transparent url("../img/_prev.svg") no-repeat center center;
+        }
+
+        &.next a:after{
+          left             : auto;
+          right            : 3px;
+          background-image : url("../img/_next.svg");
+        }
+      }
+    }
+  }
+}
+main{
+  width      : 100%;
+  min-height : calc(100vh - 80px - 57px); // minus header minus footer
+  overflow-x : hidden;
+
+  #menu{
+    position        : relative;
+    z-index         : 3;
+    touch-action    : pan-y;
+    transition      : all 500ms ease-in-out;
+    display         : flex;
+    align-items     : flex-start;
+    justify-content : space-around;
+
+    article{
+      position      : relative;
+      z-index       : 4;
+      overflow      : hidden;
+      margin        : 1px;
+      border-radius : 5px;
+
+      > *{
+        background : rgba(255, 255, 255, .7);
+        margin-top : 1px;
+        padding    : 18px 0;
+      }
+
+      li{
+        position         : relative;
+        background-color : transparent;
+        padding          : 7px 14px;
+        transition       : background-color 750ms;
+        cursor           : default;
+
+        &:hover{
+          background-color : rgba(255, 255, 255, .7);
+        }
+
+        aside{
+          position       : absolute;
+          top            : 0;
+          right          : 0;
+          width          : 3px;
+          height         : 100%;
+          vertical-align : middle;
+          text-indent    : 100%;
+          white-space    : nowrap;
+          overflow       : hidden;
+          cursor         : help;
+
+          &.veg{
+            background-color : $vegetarian;
+          }
+
+          &.glf{
+            background-color : $glutenfree;
+          }
+        }
+      }
+
+      h2{
+        margin-top : 0;
+        padding    : 25px 0 15px;
+        font-size  : 1.8em;
+        text-align : center;
+        cursor     : default;
+
+        time{
+          display     : block;
+          margin-top  : 8px;
+          font-size   : .5em;
+          font-weight : 400;
+        }
+      }
+
+      p{
+        opacity    : .7;
+        text-align : center;
+        cursor     : default;
+      }
+
+      span{
+        float       : right;
+        font-weight : 400;
+      }
+    }
+  }
+}
+// cool
+// cool
+// cool
+// cool
+
+@media only screen and (min-width : 1295px) {
+
+  #menu{
+    width     : 100%;
+    max-width : 1800px;
+    margin    : 0 auto;
+    padding   : 50px 20px;
+
+    article{
+      width : 250px !important;
+    }
+  }
+  .swiper-pagination{
+    display : none !important;
+  }
+}
+@media only screen and (max-width : 1294px) and (min-width : 1100px) {
+
+  #menu{
+    width   : calc(100vw + 100vw / 5);
+    margin  : 0;
+    padding : 50px 0 50px 60px;
+
+    article{
+      width : 250px !important;
+    }
+  }
+}
+@media only screen and (max-width : 1099px) and (min-width : 650px) {
+
+  #menu{
+    width   : calc(100vw + 100vw / 5 * 3.2);
+    margin  : 0;
+    padding : 50px 0 50px 20px;
+
+    article{
+      width : 250px !important;
+    }
+  }
+}
+@media only screen and (max-width : 649px) {
+
+  #menu{
+    width   : calc(100vw * 5);
+    margin  : 0;
+    padding : 20px 0;
+
+    article{
+      width  : 90vw !important;
+      margin : 0 auto;
+    }
+  }
+}
+// --------------------------------------- //
+// --------------------------------------- //
+
+.swiper-pagination{
+  position   : absolute;
+  text-align : center;
+  transition : 300ms;
+  transform  : translate3d(0, 0, 0);
+  z-index    : 10;
+}
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal > .swiper-pagination-bullets{
+  bottom : 10px;
+  left   : 0;
+  width  : 100%;
+}
+.swiper-pagination-bullet{
+  width         : 8px;
+  height        : 8px;
+  display       : inline-block;
+  border-radius : 100%;
+  background    : #000000;
+  opacity       : 0.2;
+}
+button.swiper-pagination-bullet{
+  border     : none;
+  margin     : 0;
+  padding    : 0;
+  box-shadow : none;
+  appearance : none;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet{
+  cursor : pointer;
+}
+.swiper-pagination-white .swiper-pagination-bullet{
+  background : #ffffff;
+}
+.swiper-pagination-bullet-active{
+  opacity    : 1;
+  background : $blue;
+}
+.swiper-pagination-white .swiper-pagination-bullet-active{
+  background : #ffffff;
+}
+.swiper-pagination-black .swiper-pagination-bullet-active{
+  background : $dark;
+}
+.swiper-container-vertical > .swiper-pagination-bullets{
+  right     : 10px;
+  top       : 50%;
+  transform : translate3d(0px, -50%, 0);
+}
+.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet{
+  margin  : 5px 0;
+  display : block;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet{
+  margin : 0 5px;
+}
+
+
+
