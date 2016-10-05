@@ -118,6 +118,8 @@ body{
   }
 
   > footer{
+    position : relative;
+    z-index  : 11;
 
     ul{
       display         : flex;
