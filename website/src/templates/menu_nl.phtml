@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="nl">
-    <?php $root = $request->getUri()->getBaseUrl() . '/public'; ?>
+    <?php
+        $root = $request->getUri()->getBaseUrl() . '/public';
+
+        $prevweek = $week - 1;
+        $nextweek = $wek + 1;
+
+        if( $week - 1 == 0 )
+            $prevweek = '../' . ( intval( substr( $year, -2, 2 ) ) - 2 ) . '-' . ( intval( substr( $year, -2, 2 ) ) - 1 ) . '/52';
+        else if( $week + 1 == 53 )
+            $nextweek = '../' . ( intval( substr( $year, -2, 2 ) ) + 1 ) . '-' . ( intval( substr( $year, -2, 2 ) ) + 2 ) . '/1';
+    ?>
     <head>
         <meta charset="utf-8">
         <meta name="description"
@@ -289,12 +299,12 @@
 
         <footer>
             <nav>
-                <ul><!-- TODO: fix href under/overflow (52 weeks in 1 yearr) -->
+                <ul>
                     <li class="prev">
-                        <a href="<?php echo $week - 1; ?>"><span>Vorige week</span></a>
+                        <a href="<?php echo $prevweek; ?>"><span>Vorige week</span></a>
                     </li>
                     <li class="next">
-                        <a href="<?php echo $week + 1; ?>"><span>Volgende week</span></a>
+                        <a href="<?php echo $nextweek; ?>"><span>Volgende week</span></a>
                     </li>
                 </ul>
             </nav>
