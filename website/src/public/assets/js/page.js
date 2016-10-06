@@ -69,14 +69,6 @@ $( document ).ready( function(){
         return false;
     } );
 
-    $( 'time' ).each( function( index ){
-        var date = new Date( $( this ).attr( 'datetime' ) );
-        if( date.setHours( 0, 0, 0, 0 ) === today.setHours( 0, 0, 0, 0 ) ){
-            $( this ).text( todayString );
-            swiper.slideTo( index );
-        }
-    } );
-
     $( window ).resize( function(){
 
         swiper.params.grabCursor = true;
@@ -98,6 +90,14 @@ $( document ).ready( function(){
         swiper.update();
 
     } ).trigger( 'resize' );
+
+    $( 'time' ).each( function( index ){
+        var date = new Date( $( this ).attr( 'datetime' ) );
+        if( date.setHours( 0, 0, 0, 0 ) === today.setHours( 0, 0, 0, 0 ) ){
+            $( this ).text( todayString );
+            swiper.slideTo( index );
+        }
+    } );
 
     switch( window.location.hash.toLowerCase() ){
         case '#monday':
