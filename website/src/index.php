@@ -51,7 +51,7 @@
 
         $menu = [];
 
-        $stmt = $this->pdo->select( [ 'day', 'type', 'name', 'name_en', 'price', 'price_ext', 'veggie' ] )
+        $stmt = $this->pdo->select( [ 'day', 'type', 'name', 'price', 'price_ext', 'veggie' ] )
                           ->from( 'kristhb42_resto.menu' )
                           ->whereMany( [ 'week' => $week, 'year' => $year ], '=' )
                           ->execute();

@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="nl">
     <?php
-        $root = $request->getUri()->getBaseUrl() . '/public';
+        $root = $request->getUri()->getBaseUrl();
 
         $prevweek = $week - 1;
-        $nextweek = $wek + 1;
+        $nextweek = $week + 1;
 
         if( $week - 1 == 0 )
             $prevweek = '../' . ( intval( substr( $year, -2, 2 ) ) - 2 ) . '-' . ( intval( substr( $year, -2, 2 ) ) - 1 ) . '/52';
@@ -28,13 +28,13 @@
 
         <title>ProxiResto</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="<?php echo $root; ?>/assets/img/icon.ico">
-        <link rel="icon" type="image/png" href="<?php echo $root; ?>/assets/img/icon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo $root; ?>/public/assets/img/icon.ico">
+        <link rel="icon" type="image/png" href="<?php echo $root; ?>/public/assets/img/icon.png">
 
-        <link rel="stylesheet" media="screen" href="<?php echo $root; ?>/assets/css/screen.css">
+        <link rel="stylesheet" media="screen" href="<?php echo $root; ?>/public/assets/css/screen.css">
     </head>
 
-    <body id="home">
+    <body style="background-image: url('<?php echo $root; ?>/public/assets/img/bg<?php echo date( 'g' ); ?>.jpg')">
 
         <header>
             <section id="top">
@@ -47,12 +47,12 @@
             <section id="menu" class="swiper-wrapper">
                 <h2 class="h">Menu of the week</h2>
 
-                <article id="maandag" class="swiper-slide">
-                    <h2>Maandag
+                <article id="maandag" class="swiper-slide hide">
+                    <h3>Maandag
                         <time
                             datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) ) ); ?>">
                             <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) ) ); ?></time>
-                    </h2>
+                    </h3>
                     <?php if( !empty( $menu['1'] ) ): ?>
                         <?php if( !empty( $menu['1']['soup'] ) ): ?>
                             <ul class="soup">
@@ -96,12 +96,12 @@
                         </p>
                     <?php endif; ?>
                 </article>
-                <article id="dinsdag" class="swiper-slide">
-                    <h2>Dinsdag
+                <article id="dinsdag" class="swiper-slide hide">
+                    <h3>Dinsdag
                         <time
                             datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 1 day' ) ); ?>">
                             <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 1 day' ) ); ?></time>
-                    </h2>
+                    </h3>
                     <?php if( !empty( $menu['2'] ) ): ?>
                         <?php if( !empty( $menu['2']['soup'] ) ): ?>
                             <ul class="soup">
@@ -145,12 +145,12 @@
                         </p>
                     <?php endif; ?>
                 </article>
-                <article id="woensdag" class="swiper-slide">
-                    <h2>Woensdag
+                <article id="woensdag" class="swiper-slide hide">
+                    <h3>Woensdag
                         <time
                             datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 2 day' ) ); ?>">
                             <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 2 day' ) ); ?></time>
-                    </h2>
+                    </h3>
                     <?php if( !empty( $menu['3'] ) ): ?>
                         <?php if( !empty( $menu['3']['soup'] ) ): ?>
                             <ul class="soup">
@@ -194,12 +194,12 @@
                         </p>
                     <?php endif; ?>
                 </article>
-                <article id="donderdag" class="swiper-slide">
-                    <h2>Donderdag
+                <article id="donderdag" class="swiper-slide hide">
+                    <h3>Donderdag
                         <time
                             datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 3 day' ) ); ?>">
                             <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 3 day' ) ); ?></time>
-                    </h2>
+                    </h3>
                     <?php if( !empty( $menu['4'] ) ): ?>
                         <?php if( !empty( $menu['4']['soup'] ) ): ?>
                             <ul class="soup">
@@ -243,12 +243,12 @@
                         </p>
                     <?php endif; ?>
                 </article>
-                <article id="vrijdag" class="swiper-slide">
-                    <h2>Vrijdag
+                <article id="vrijdag" class="swiper-slide hide">
+                    <h3>Vrijdag
                         <time
                             datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 4 day' ) ); ?>">
                             <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 4 day' ) ); ?></time>
-                    </h2>
+                    </h3>
                     <?php if( !empty( $menu['5'] ) ): ?>
                         <?php if( !empty( $menu['5']['soup'] ) ): ?>
                             <ul class="soup">
@@ -292,19 +292,92 @@
                         </p>
                     <?php endif; ?>
                 </article>
-
             </section>
-            <div class="swiper-pagination"></div>
+
+            <section id="prefs" class="">
+                <h2 class="h">Over ProxiResto</h2>
+
+                <article>
+                    <h3>Voorkeuren</h3>
+                    <ul>
+                        <li>
+                            <input id="box_cookie" type="checkbox">
+                            <label for="box_cookie">Cookies toestaan</label>
+                        </li>
+                        <li class="disabled">
+                            <input id="box_price" type="checkbox" checked disabled>
+                            <label for="box_price">Studentenprijzen tonen</label>
+                        </li>
+                        <li class="disabled">
+                            <select id="sel_lang" disabled>
+                                <option value="nl">Nederlands</option>
+                                <option value="en">English</option>
+                            </select>
+                            <span id="opt_lang">nl</span>
+                            <label for="sel_lang">Voorkeurstaal</label>
+                        </li>
+                    </ul>
+                    <p class="note">
+                        Je voorkeurstaal wordt gebruikt wanneer je gewenste taal niet in het webadres vermeld wordt.
+                    </p>
+                </article>
+
+                <article class="mobile">
+                    <h3>Webapplicatie</h3>
+                    <ul>
+                        <li>
+                            <a href="<?php echo $root; ?>/app" class="internal">Installatie-instructies</a>
+                        </li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3>Vrijwaringsclausule</h3>
+                    <ul>
+                        <li>
+                            <a id="lnk_contact">Probleem of fout melden</a>
+                        </li>
+                        <li>
+                            <a id="lnk_donate" target="_blank" href="https://www.paypal.me/Qrivi">
+                                Developer broodje trakteren</a>
+                        </li>
+                    </ul>
+                    <p class="note">
+                        ProxiResto is een vrijetijdsproject en is niet geaffilieerd UCLL, HoreServi of andere derden.
+                        Data is afkomstig van UCLL intranet en kan incorrect zijn. ProxiResto is niet verantwoordelijk
+                        voor lange files in de cafetaria. Smakelijk!
+                    </p>
+                </article>
+            </section>
+
+            <section id="contact">
+                <h2 class="h">Contacteer de developer</h2>
+
+                <ul>
+                    <li>
+                        <a href="mailto:kristof-DOT-dewilde-AT-student-DOT-ucll-DOT-be" class="mail">E-mail</a>
+                    </li>
+                    <li>
+                        <a href="http://m.me/Qrivi" class="messenger" target="_blank">Messenger</a>
+                    </li>
+                    <li>
+                        <a href="http://twitter.com/Qrivi" class="twitter" target="_blank">Twitter</a>
+                    </li>
+                </ul>
+                <button>Annuleren</button>
+            </section>
+
+            <div class="swiper-pagination hide"></div>
         </main>
 
-        <footer>
+        <footer class="hide">
             <nav>
                 <ul>
                     <li class="prev">
-                        <a href="<?php echo $prevweek; ?>"><span>Vorige week</span></a>
+                        <a id="lnk_prev" href="<?php echo $prevweek; ?>"><span>Vorige week</span></a>
                     </li>
                     <li class="next">
-                        <a href="<?php echo $nextweek; ?>"><span>Volgende week</span></a>
+                        <a id="lnk_next" href="<?php echo $nextweek; ?>"><span>Volgende week</span></a>
                     </li>
                 </ul>
             </nav>
@@ -316,6 +389,6 @@
                 src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script type="text/javascript"
                 src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-        <script type="text/javascript" src="<?php echo $root; ?>/assets/js/page.js"></script>
+        <script type="text/javascript" src="<?php echo $root; ?>/public/assets/js/page.js"></script>
     </body>
 </html>
