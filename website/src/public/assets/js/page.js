@@ -1,10 +1,9 @@
 var today = new Date();
-var todayString;
+var todayString = $.cookie( 'language' ) === 'en' ? 'Today' : 'Vandaag';
+var external = false;
 var swiper;
 
 $( document ).ready( function(){
-
-    todayString = $.cookie( 'lang' ) === 'en' ? 'Today' : 'Vandaag';
 
     swiper = new Swiper( 'main', {
         direction : 'horizontal',
@@ -41,8 +40,34 @@ $( document ).ready( function(){
     $( 'a.internal' ).click( function( e ){
         e.preventDefault();
         window.location = $( this ).attr( 'href' );
-        console.log( "navved" );
-        return false;
+    } );
+
+    $( '#box_cookie' ).change( function(){
+        if( $( this ).prop( 'checked' ) ){
+            $.cookie( 'cookies', 'harambe was an inside job', { path : "/", expires : 300 } );
+            $( '.needcookie' ).removeClass( 'disabled' );
+            $( '.needcookie select, .needcookie input' ).prop( 'disabled', false );
+        }else{
+            $.removeCookie( 'cookies', { path : "/" } );
+            $.removeCookie( 'external', { path : "/" } );
+            $.removeCookie( 'language', { path : "/" } );
+            $( '.needcookie' ).addClass( 'disabled' );
+            $( '.needcookie select, .needcookie input' ).prop( 'disabled', true );
+            $( '#box_price' ).prop( 'checked', true );
+            $( '#sel_lang' ).val( 'nl' );
+            $( '#opt_lang' ).text( 'nl' );
+        }
+    } );
+
+    $( '#box_price' ).change( function(){
+        external = !$( this ).prop( 'checked' );
+        $.cookie( 'external', external, { path : "/", expires : 300 } );
+        checkPrices();
+    } );
+
+    $( '#sel_lang' ).change( function(){
+        $( '#opt_lang' ).text( $( this ).val() );
+        $.cookie( 'language', $( this ).val(), { path : "/", expires : 300 } );
     } );
 
     $( '#lnk_prev, #lnk_next' ).click( function( e ){
@@ -56,17 +81,16 @@ $( document ).ready( function(){
 
             $.get( href, function( data ){
                 $( '#menu' ).html( $( data ).find( '#menu article' ) );
-                $( '#lnk_prev' ).attr( 'href', $( data ).find( '#lnk_prev' ).attr('href') );
-                $( '#lnk_next' ).attr( 'href', $( data ).find( '#lnk_next' ).attr('href') );
+                $( '#lnk_prev' ).attr( 'href', $( data ).find( '#lnk_prev' ).attr( 'href' ) );
+                $( '#lnk_next' ).attr( 'href', $( data ).find( '#lnk_next' ).attr( 'href' ) );
 
+                checkPrices();
                 setTimeout( function(){
                     $( '#menu' ).removeClass( 'rotated' );
                     swiper.update();
                 }, 150 );
             } );
         }, 300 );
-
-        return false;
     } );
 
     $( window ).resize( function(){
@@ -127,8 +151,28 @@ $( document ).ready( function(){
             break;
     }
 
+    if( !(!$.cookie( 'cookies' )) )
+        $( '#box_cookie' ).prop( 'checked', true ).trigger( 'change' );
+
+    if( !(!$.cookie( 'external' )) )
+        $( '#box_price' ).prop( 'checked', ( $.cookie( 'external' ) === 'false') ).trigger( 'change' );
+
+    if( !(!$.cookie( 'language' )) )
+        $( '#sel_lang' ).val( $.cookie( 'language' ) ).trigger( 'change' );
+
     if( window.matchMedia( '(display-mode: standalone)' ).matches || window.navigator.standalone )
         $( '.mobile' ).hide();
 
     window.scrollTo( 0, 1 );
 } );
+
+function checkPrices(){
+    var prices = $( '#menu li span' );
+
+    $( prices ).each( function(){
+        if( external )
+            $( this ).text( $( this ).attr( 'data-external' ) );
+        else
+            $( this ).text( $( this ).attr( 'data-students' ) );
+    } );
+}

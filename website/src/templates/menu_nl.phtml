@@ -59,7 +59,11 @@
                                 <?php foreach( $menu['1']['soup'] as $soup ): ?>
                                     <li>
                                         <?php echo $soup['name']; ?>
-                                        <span>&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $soup['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
@@ -69,7 +73,11 @@
                                 <?php foreach( $menu['1']['dish'] as $dish ): ?>
                                     <li>
                                         <?php echo $dish['name']; ?>
-                                        <span>&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $dish['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                         <?php if( intval( $dish['veggie'] ) > 0 ): ?>
                                             <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
                                         <?php endif; ?>
@@ -82,7 +90,11 @@
                                 <?php foreach( $menu['1']['snack'] as $snack ): ?>
                                     <li>
                                         <?php echo $snack['name']; ?>
-                                        <span>&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $snack['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                         <?php if( intval( $snack['veggie'] ) > 0 ): ?>
                                             <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
                                         <?php endif; ?>
@@ -108,7 +120,11 @@
                                 <?php foreach( $menu['2']['soup'] as $soup ): ?>
                                     <li>
                                         <?php echo $soup['name']; ?>
-                                        <span>&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $soup['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
@@ -118,7 +134,11 @@
                                 <?php foreach( $menu['2']['dish'] as $dish ): ?>
                                     <li>
                                         <?php echo $dish['name']; ?>
-                                        <span>&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $dish['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                         <?php if( intval( $dish['veggie'] ) > 0 ): ?>
                                             <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
                                         <?php endif; ?>
@@ -131,7 +151,11 @@
                                 <?php foreach( $menu['2']['snack'] as $snack ): ?>
                                     <li>
                                         <?php echo $snack['name']; ?>
-                                        <span>&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $snack['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                         <?php if( intval( $snack['veggie'] ) > 0 ): ?>
                                             <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
                                         <?php endif; ?>
@@ -157,7 +181,11 @@
                                 <?php foreach( $menu['3']['soup'] as $soup ): ?>
                                     <li>
                                         <?php echo $soup['name']; ?>
-                                        <span>&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $soup['price_ext'], 2, ',', ' ' ); ?>">
+                                              &euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
@@ -167,7 +195,11 @@
                                 <?php foreach( $menu['3']['dish'] as $dish ): ?>
                                     <li>
                                         <?php echo $dish['name']; ?>
-                                        <span>&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $dish['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                         <?php if( intval( $dish['veggie'] ) > 0 ): ?>
                                             <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
                                         <?php endif; ?>
@@ -180,7 +212,11 @@
                                 <?php foreach( $menu['3']['snack'] as $snack ): ?>
                                     <li>
                                         <?php echo $snack['name']; ?>
-                                        <span>&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $snack['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                         <?php if( intval( $snack['veggie'] ) > 0 ): ?>
                                             <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
                                         <?php endif; ?>
@@ -206,7 +242,11 @@
                                 <?php foreach( $menu['4']['soup'] as $soup ): ?>
                                     <li>
                                         <?php echo $soup['name']; ?>
-                                        <span>&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $soup['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
@@ -216,7 +256,11 @@
                                 <?php foreach( $menu['4']['dish'] as $dish ): ?>
                                     <li>
                                         <?php echo $dish['name']; ?>
-                                        <span>&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $dish['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                         <?php if( intval( $dish['veggie'] ) > 0 ): ?>
                                             <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
                                         <?php endif; ?>
@@ -229,7 +273,11 @@
                                 <?php foreach( $menu['4']['snack'] as $snack ): ?>
                                     <li>
                                         <?php echo $snack['name']; ?>
-                                        <span>&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $snack['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                         <?php if( intval( $snack['veggie'] ) > 0 ): ?>
                                             <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
                                         <?php endif; ?>
@@ -255,7 +303,11 @@
                                 <?php foreach( $menu['5']['soup'] as $soup ): ?>
                                     <li>
                                         <?php echo $soup['name']; ?>
-                                        <span>&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $soup['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
@@ -265,7 +317,11 @@
                                 <?php foreach( $menu['5']['dish'] as $dish ): ?>
                                     <li>
                                         <?php echo $dish['name']; ?>
-                                        <span>&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $dish['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                         <?php if( intval( $dish['veggie'] ) > 0 ): ?>
                                             <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
                                         <?php endif; ?>
@@ -278,7 +334,11 @@
                                 <?php foreach( $menu['5']['snack'] as $snack ): ?>
                                     <li>
                                         <?php echo $snack['name']; ?>
-                                        <span>&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?></span>
+                                        <span
+                                            data-students="&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>"
+                                            data-external="&euro; <?php echo number_format( $snack['price_ext'], 2, ',', ' ' ); ?>">
+                                            &euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>
+                                        </span>
                                         <?php if( intval( $snack['veggie'] ) > 0 ): ?>
                                             <aside class="veg" title="Vegetarische schotel">Vegetarische schotel</aside>
                                         <?php endif; ?>
@@ -304,11 +364,11 @@
                             <input id="box_cookie" type="checkbox">
                             <label for="box_cookie">Cookies toestaan</label>
                         </li>
-                        <li class="disabled">
+                        <li class="needcookie disabled">
                             <input id="box_price" type="checkbox" checked disabled>
                             <label for="box_price">Studentenprijzen tonen</label>
                         </li>
-                        <li class="disabled">
+                        <li class="needcookie disabled">
                             <select id="sel_lang" disabled>
                                 <option value="nl">Nederlands</option>
                                 <option value="en">English</option>
