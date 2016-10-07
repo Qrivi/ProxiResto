@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="nl">
+<html lang="en">
     <?php
         $root = $request->getUri()->getBaseUrl();
 
@@ -14,7 +14,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="description"
-              content="Wat schaft de pot vandaag in het studentenrestaurant van UCLL's campus Proximus?">
+              content="What's cookin' at the student restaurant at UCLL's campus Proximus today?">
         <meta name="keywords"
               content="ucll, uc, leuven, limburg, campus, proximus, restaurant, cafetaria, horeservice, omnomnom">
         <meta name="viewport"
@@ -38,17 +38,17 @@
 
         <header>
             <section id="top">
-                <h1>Studentenrestaurant <span>Campus Proximus</span></h1>
+                <h1>Student restaurant <span>Campus Proximus</span></h1>
                 <div id="hamburger"><span>&nbsp;</span></div>
             </section>
         </header>
 
         <main>
             <section id="menu" class="swiper-wrapper">
-                <h2 class="h">Menu van de week</h2>
+                <h2 class="h">Menu of the week</h2>
 
-                <article id="maandag" class="swiper-slide hide">
-                    <h3>Maandag
+                <article id="monday" class="swiper-slide hide">
+                    <h3>Monday
                         <time
                             datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) ) ); ?>">
                             <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) ) ); ?></time>
@@ -58,7 +58,7 @@
                             <ul class="soup">
                                 <?php foreach( $menu['1']['soup'] as $soup ): ?>
                                     <li>
-                                        <?php echo $soup['name']; ?>
+                                        <?php echo $soup['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $soup['price_ext'], 2, ',', ' ' ); ?>">
@@ -72,7 +72,7 @@
                             <ul class="dish">
                                 <?php foreach( $menu['1']['dish'] as $dish ): ?>
                                     <li>
-                                        <?php echo $dish['name']; ?>
+                                        <?php echo $dish['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $dish['price_ext'], 2, ',', ' ' ); ?>">
@@ -89,7 +89,7 @@
                             <ul class="dish">
                                 <?php foreach( $menu['1']['snack'] as $snack ): ?>
                                     <li>
-                                        <?php echo $snack['name']; ?>
+                                        <?php echo $snack['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $snack['price_ext'], 2, ',', ' ' ); ?>">
@@ -104,12 +104,12 @@
                         <?php endif; ?>
                     <?php else: ?>
                         <p>
-                            Restaurant gesloten
+                            Restaurant closed
                         </p>
                     <?php endif; ?>
                 </article>
-                <article id="dinsdag" class="swiper-slide hide">
-                    <h3>Dinsdag
+                <article id="tuesday" class="swiper-slide hide">
+                    <h3>Tuesday
                         <time
                             datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 1 day' ) ); ?>">
                             <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 1 day' ) ); ?></time>
@@ -119,7 +119,7 @@
                             <ul class="soup">
                                 <?php foreach( $menu['2']['soup'] as $soup ): ?>
                                     <li>
-                                        <?php echo $soup['name']; ?>
+                                        <?php echo $soup['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $soup['price_ext'], 2, ',', ' ' ); ?>">
@@ -133,7 +133,7 @@
                             <ul class="dish">
                                 <?php foreach( $menu['2']['dish'] as $dish ): ?>
                                     <li>
-                                        <?php echo $dish['name']; ?>
+                                        <?php echo $dish['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $dish['price_ext'], 2, ',', ' ' ); ?>">
@@ -150,7 +150,7 @@
                             <ul class="dish">
                                 <?php foreach( $menu['2']['snack'] as $snack ): ?>
                                     <li>
-                                        <?php echo $snack['name']; ?>
+                                        <?php echo $snack['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $snack['price_ext'], 2, ',', ' ' ); ?>">
@@ -165,12 +165,12 @@
                         <?php endif; ?>
                     <?php else: ?>
                         <p>
-                            Restaurant gesloten
+                            Restaurant closed
                         </p>
                     <?php endif; ?>
                 </article>
-                <article id="woensdag" class="swiper-slide hide">
-                    <h3>Woensdag
+                <article id="wednesday" class="swiper-slide hide">
+                    <h3>Wednesday
                         <time
                             datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 2 day' ) ); ?>">
                             <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 2 day' ) ); ?></time>
@@ -180,7 +180,7 @@
                             <ul class="soup">
                                 <?php foreach( $menu['3']['soup'] as $soup ): ?>
                                     <li>
-                                        <?php echo $soup['name']; ?>
+                                        <?php echo $soup['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $soup['price_ext'], 2, ',', ' ' ); ?>">
@@ -194,7 +194,7 @@
                             <ul class="dish">
                                 <?php foreach( $menu['3']['dish'] as $dish ): ?>
                                     <li>
-                                        <?php echo $dish['name']; ?>
+                                        <?php echo $dish['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $dish['price_ext'], 2, ',', ' ' ); ?>">
@@ -211,7 +211,7 @@
                             <ul class="dish">
                                 <?php foreach( $menu['3']['snack'] as $snack ): ?>
                                     <li>
-                                        <?php echo $snack['name']; ?>
+                                        <?php echo $snack['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $snack['price_ext'], 2, ',', ' ' ); ?>">
@@ -226,12 +226,12 @@
                         <?php endif; ?>
                     <?php else: ?>
                         <p>
-                            Restaurant gesloten
+                            Restaurant closed
                         </p>
                     <?php endif; ?>
                 </article>
-                <article id="donderdag" class="swiper-slide hide">
-                    <h3>Donderdag
+                <article id="thursday" class="swiper-slide hide">
+                    <h3>Thursday
                         <time
                             datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 3 day' ) ); ?>">
                             <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 3 day' ) ); ?></time>
@@ -241,7 +241,7 @@
                             <ul class="soup">
                                 <?php foreach( $menu['4']['soup'] as $soup ): ?>
                                     <li>
-                                        <?php echo $soup['name']; ?>
+                                        <?php echo $soup['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $soup['price_ext'], 2, ',', ' ' ); ?>">
@@ -255,7 +255,7 @@
                             <ul class="dish">
                                 <?php foreach( $menu['4']['dish'] as $dish ): ?>
                                     <li>
-                                        <?php echo $dish['name']; ?>
+                                        <?php echo $dish['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $dish['price_ext'], 2, ',', ' ' ); ?>">
@@ -272,7 +272,7 @@
                             <ul class="dish">
                                 <?php foreach( $menu['4']['snack'] as $snack ): ?>
                                     <li>
-                                        <?php echo $snack['name']; ?>
+                                        <?php echo $snack['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $snack['price_ext'], 2, ',', ' ' ); ?>">
@@ -287,12 +287,12 @@
                         <?php endif; ?>
                     <?php else: ?>
                         <p>
-                            Restaurant gesloten
+                            Restaurant closed
                         </p>
                     <?php endif; ?>
                 </article>
-                <article id="vrijdag" class="swiper-slide hide">
-                    <h3>Vrijdag
+                <article id="friday" class="swiper-slide hide">
+                    <h3>Friday
                         <time
                             datetime="<?php echo date( 'Y-m-d', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 4 day' ) ); ?>">
                             <?php echo date( 'j/n', strtotime( $year . 'W' . sprintf( '%02d', $week ) . '+ 4 day' ) ); ?></time>
@@ -302,7 +302,7 @@
                             <ul class="soup">
                                 <?php foreach( $menu['5']['soup'] as $soup ): ?>
                                     <li>
-                                        <?php echo $soup['name']; ?>
+                                        <?php echo $soup['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $soup['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $soup['price_ext'], 2, ',', ' ' ); ?>">
@@ -316,7 +316,7 @@
                             <ul class="dish">
                                 <?php foreach( $menu['5']['dish'] as $dish ): ?>
                                     <li>
-                                        <?php echo $dish['name']; ?>
+                                        <?php echo $dish['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $dish['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $dish['price_ext'], 2, ',', ' ' ); ?>">
@@ -333,7 +333,7 @@
                             <ul class="dish">
                                 <?php foreach( $menu['5']['snack'] as $snack ): ?>
                                     <li>
-                                        <?php echo $snack['name']; ?>
+                                        <?php echo $snack['name_en']; ?>
                                         <span
                                             data-students="&euro; <?php echo number_format( $snack['price'], 2, ',', ' ' ); ?>"
                                             data-external="&euro; <?php echo number_format( $snack['price_ext'], 2, ',', ' ' ); ?>">
@@ -348,25 +348,25 @@
                         <?php endif; ?>
                     <?php else: ?>
                         <p>
-                            Restaurant gesloten
+                            Restaurant closed
                         </p>
                     <?php endif; ?>
                 </article>
             </section>
 
             <section id="prefs" class="">
-                <h2 class="h">Over ProxiResto</h2>
+                <h2 class="h">About ProxiResto</h2>
 
                 <article>
-                    <h3>Voorkeuren</h3>
+                    <h3>Preferences</h3>
                     <ul>
                         <li>
                             <input id="box_cookie" type="checkbox">
-                            <label for="box_cookie">Cookies toestaan</label>
+                            <label for="box_cookie">Allow cookies</label>
                         </li>
                         <li class="needcookie disabled">
                             <input id="box_price" type="checkbox" checked disabled>
-                            <label for="box_price">Studentenprijzen tonen</label>
+                            <label for="box_price">Show student prices</label>
                         </li>
                         <li class="needcookie disabled">
                             <select id="sel_lang" disabled>
@@ -374,44 +374,44 @@
                                 <option value="en">English</option>
                             </select>
                             <span id="opt_lang">nl</span>
-                            <label for="sel_lang">Voorkeurstaal</label>
+                            <label for="sel_lang">Preferred language</label>
                         </li>
                     </ul>
                     <p class="note">
-                        Je voorkeurstaal wordt gebruikt wanneer je gewenste taal niet in het webadres vermeld wordt.
+                        Your preferred language will be used if the display language is not defined in the web adres.
                     </p>
                 </article>
 
                 <article class="mobile">
-                    <h3>Webapplicatie</h3>
+                    <h3>Web application</h3>
                     <ul>
                         <li>
-                            <a href="<?php echo $root; ?>/app">Installatie-instructies</a>
+                            <a href="<?php echo $root; ?>/app">How to install</a>
                         </li>
                     </ul>
                 </article>
 
                 <article>
-                    <h3>Vrijwaringsclausule</h3>
+                    <h3>Disclaimer</h3>
                     <ul>
                         <li>
-                            <a id="lnk_contact">Probleem of fout melden</a>
+                            <a id="lnk_contact">Report bug or issue</a>
                         </li>
                         <li>
                             <a id="lnk_donate" target="_blank" href="https://www.paypal.me/Qrivi">
-                                Developer broodje trakteren</a>
+                                Treat developer a sandwich</a>
                         </li>
                     </ul>
                     <p class="note">
-                        ProxiResto is een vrijetijdsproject en is niet geaffilieerd met UCLL, HoreServi of andere
-                        derden. Data is afkomstig van UCLL's intranet en kan incorrect zijn. ProxiResto is niet
-                        verantwoordelijk voor lange files in het restaurant. Smakelijk!
+                        ProxiResto is a side project and in no way affiliated with UCLL, HoreServi or any other third
+                        parties. Data is provided by UCLL's intranet and may be erroneous. ProxiResto is not accountable
+                        for long waiting queues at the restaurant. Enjoy your meal!
                     </p>
                 </article>
             </section>
 
             <section id="contact">
-                <h2 class="h">Contacteer de developer</h2>
+                <h2 class="h">Contact the developer</h2>
 
                 <ul>
                     <li>
@@ -424,7 +424,7 @@
                         <a href="http://twitter.com/Qrivi" class="twitter" target="_blank">Twitter</a>
                     </li>
                 </ul>
-                <button>Annuleren</button>
+                <button>Dismiss</button>
             </section>
 
             <div class="swiper-pagination hide"></div>
@@ -434,10 +434,10 @@
             <nav>
                 <ul>
                     <li class="prev">
-                        <a id="lnk_prev" href="<?php echo $prevweek; ?>"><span>Vorige week</span></a>
+                        <a id="lnk_prev" href="<?php echo $prevweek; ?>"><span>Previous week</span></a>
                     </li>
                     <li class="next">
-                        <a id="lnk_next" href="<?php echo $nextweek; ?>"><span>Volgende week</span></a>
+                        <a id="lnk_next" href="<?php echo $nextweek; ?>"><span>Next week</span></a>
                     </li>
                 </ul>
             </nav>
