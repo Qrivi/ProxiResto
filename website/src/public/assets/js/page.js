@@ -37,11 +37,6 @@ $( document ).ready( function(){
 
     $( 'a.mail' ).attr( 'href', 'mailto:kristof.dewilde@student.ucll.be' );
 
-    $( 'a.internal' ).click( function( e ){
-        e.preventDefault();
-        window.location = $( this ).attr( 'href' );
-    } );
-
     $( '#box_cookie' ).change( function(){
         if( $( this ).prop( 'checked' ) ){
             $.cookie( 'cookies', 'harambe was an inside job', { path : "/", expires : 300 } );
