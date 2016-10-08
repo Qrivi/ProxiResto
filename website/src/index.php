@@ -20,17 +20,6 @@
 
     /* routes */
 
-    $app->get( '/test', function ( Request $request, Response $response ){
-        $selectStatement = $this->pdo->select()
-                                     ->from( 'kristhb42_resto.menu' );
-
-        $stmt = $selectStatement->execute();
-        $data = $stmt->fetchAll();
-
-        $response = $this->view->render( $response, 'hello.phtml', [ 'data', $data ] );
-        return $response;
-    } );
-
     $app->get( '/', function ( Request $request, Response $response ){
         $date = date( 'y' );
         $lang = empty( $_COOKIE['language'] ) ? 'nl' : $_COOKIE['language'];
@@ -38,19 +27,20 @@
         $week = date( 'W' );
         $year = ( $week > 35 ? ( $date . '-' . ( $date + 1 ) ) : ( ( $date - 1 ) . '-' . $date ) );
 
-        return $response->withRedirect( $request->getUri()->getBaseUrl() . "/{$lang}/{$year}/{$week}" );
+        return $response->withRedirect( $request->getUri()->getBaseUrl() . "/{$lang}/{$year}/{$week}", 200 );
     } );
 
-    $app->get( '/nl/{year}/{week}', function ( Request $request, Response $response ){
+    $app->get( '/{lang}/{year}/{week}', function ( Request $request, Response $response ){
         $week = $request->getAttribute( 'week' );
         $year = $request->getAttribute( 'year' );
+        $lang = $request->getAttribute( 'lang' );
 
         if( $week > 52 || $week < 1 || !preg_match( '/^[1-9]{2}-[1-9]{2}$/', $year ) )
             return $response->withRedirect( $request->getUri()->getBaseUrl() );
 
         $menu = [];
 
-        $stmt = $this->pdo->select( [ 'day', 'type', 'name', 'price', 'price_ext', 'veggie' ] )
+        $stmt = $this->pdo->select( [ 'day', 'type', 'name', 'name_en', 'price', 'price_ext', 'veggie' ] )
                           ->from( 'kristhb42_resto.menu' )
                           ->whereMany( [ 'week' => $week, 'year' => $year ], '=' )
                           ->execute();
@@ -59,42 +49,28 @@
         foreach( $data as &$item )
             $menu[$item['day']][$item['type']][] = $item;
 
-        $response = $this->view->render( $response, 'menu_nl.phtml', [
-            'request' => $request,
-            'week'    => $week,
-            'year'    => '20' . ( $week > 35 ? substr( $year, 0, 2 ) : substr( $year, -2, 2 ) ),
-            'menu'    => $menu
-        ] );
-        // return $response;  utf-8 not working on server :/
-        return $response->withHeader( 'Content-Type', 'text/html; charset=iso-8859-1' );
-    } );
+        switch( $lang ){
+            case 'nl':
+            case 'en':
+                $content = 'text/html; charset=iso-8859-1'; // utf-8 not working on host server :/
+                $response = $this->view->render( $response, 'menu_' . $lang . '.phtml', [
+                    'request' => $request,
+                    'week'    => $week,
+                    'year'    => '20' . ( $week > 35 ? substr( $year, 0, 2 ) : substr( $year, -2, 2 ) ),
+                    'menu'    => $menu
+                ] );
+                break;
+            case 'api':
+                $content = 'application/json; charset=iso-8859-1'; // utf-8 not working on host server :/
+                $response = $this->view->render( $response, 'api.phtml', [
+                    'menu'    => $menu
+                ] );
+                break;
+            default:
+                return $response->withRedirect( $request->getUri()->getBaseUrl() );
+        }
 
-    $app->get( '/en/{year}/{week}', function ( Request $request, Response $response ){
-        $week = $request->getAttribute( 'week' );
-        $year = $request->getAttribute( 'year' );
-
-        if( $week > 52 || $week < 1 || !preg_match( '/^[1-9]{2}-[1-9]{2}$/', $year ) )
-            return $response->withRedirect( $request->getUri()->getBaseUrl() );
-
-        $menu = [];
-
-        $stmt = $this->pdo->select( [ 'day', 'type', 'name_en', 'price', 'price_ext', 'veggie' ] )
-                          ->from( 'kristhb42_resto.menu' )
-                          ->whereMany( [ 'week' => $week, 'year' => $year ], '=' )
-                          ->execute();
-        $data = $stmt->fetchAll();
-
-        foreach( $data as &$item )
-            $menu[$item['day']][$item['type']][] = $item;
-
-        $response = $this->view->render( $response, 'menu_en.phtml', [
-            'request' => $request,
-            'week'    => $week,
-            'year'    => '20' . ( $week > 35 ? substr( $year, 0, 2 ) : substr( $year, -2, 2 ) ),
-            'menu'    => $menu
-        ] );
-        // return $response;  utf-8 not working on server :/
-        return $response->withHeader( 'Content-Type', 'text/html; charset=iso-8859-1' );
+        return $response->withHeader( 'Content-Type', $content );
     } );
 
     $app->run();
