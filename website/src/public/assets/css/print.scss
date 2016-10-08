@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+body{
+  font-family : Arial, sans-serif;
+  font-size   : 10pt;
+  line-height : 14pt;
+
+  #menu article{
+    width : 870px;
+
+    h3{
+      border-bottom : solid 1px #000000;
+      padding-top   : 10px;
+    }
+
+    span{
+      float: right;
+    }
+
+    ul:before{
+      speak       : none;
+      font-size   : 11pt;
+      font-weight : bold;
+      text-indent     : 10px;
+    }
+    ul:nth-of-type(1):before{
+      content: "Soups";
+    }
+    ul:nth-of-type(2):before{
+      content: "Dishes";
+    }
+    ul:nth-of-type(3):before{
+      content: "Snacks";
+    }
+  }
+
+  & > header,
+  & > footer,
+  #prefs, #contact{
+    display : none;
+  }
+}
