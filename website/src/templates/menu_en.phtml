@@ -32,6 +32,7 @@
         <link rel="icon" type="image/png" href="<?php echo $root; ?>/public/assets/img/icon.png">
 
         <link rel="stylesheet" media="screen" href="<?php echo $root; ?>/public/assets/css/screen.css">
+        <link rel="stylesheet" media="print" href="<?php echo $root; ?>/public/assets/css/print.css">
     </head>
 
     <body style="background-image: url('<?php echo $root; ?>/public/assets/img/bg<?php echo date( 'g' ); ?>.jpg')">
@@ -88,7 +89,7 @@
                             </ul>
                         <?php endif; ?>
                         <?php if( !empty( $menu['1']['snack'] ) ): ?>
-                            <ul class="dish">
+                            <ul class="snack">
                                 <?php foreach( $menu['1']['snack'] as $snack ): ?>
                                     <li>
                                         <?php echo utf8_encode( $snack['name_en'] ); ?>
@@ -149,7 +150,7 @@
                             </ul>
                         <?php endif; ?>
                         <?php if( !empty( $menu['2']['snack'] ) ): ?>
-                            <ul class="dish">
+                            <ul class="snack">
                                 <?php foreach( $menu['2']['snack'] as $snack ): ?>
                                     <li>
                                         <?php echo utf8_encode( $snack['name_en'] ); ?>
@@ -210,7 +211,7 @@
                             </ul>
                         <?php endif; ?>
                         <?php if( !empty( $menu['3']['snack'] ) ): ?>
-                            <ul class="dish">
+                            <ul class="snack">
                                 <?php foreach( $menu['3']['snack'] as $snack ): ?>
                                     <li>
                                         <?php echo utf8_encode( $snack['name_en'] ); ?>
@@ -271,7 +272,7 @@
                             </ul>
                         <?php endif; ?>
                         <?php if( !empty( $menu['4']['snack'] ) ): ?>
-                            <ul class="dish">
+                            <ul class="snack">
                                 <?php foreach( $menu['4']['snack'] as $snack ): ?>
                                     <li>
                                         <?php echo utf8_encode( $snack['name_en'] ); ?>
@@ -332,7 +333,7 @@
                             </ul>
                         <?php endif; ?>
                         <?php if( !empty( $menu['5']['snack'] ) ): ?>
-                            <ul class="dish">
+                            <ul class="snack">
                                 <?php foreach( $menu['5']['snack'] as $snack ): ?>
                                     <li>
                                         <?php echo utf8_encode( $snack['name_en'] ); ?>
