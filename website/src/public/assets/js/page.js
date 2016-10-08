@@ -1,6 +1,6 @@
 var today = new Date();
-var todayString = $.cookie( 'language' ) === 'en' ? 'Today' : 'Vandaag';
 var external = false;
+var loaded = false;
 var swiper;
 
 $( document ).ready( function(){
@@ -12,8 +12,12 @@ $( document ).ready( function(){
         keyboardControl : true
     } );
 
+    $( 'body' ).removeClass( 'loading' );
+    $( 'body, main' ).css( 'overflow-x', 'hidden' );
+
     $( '#hamburger' ).click( function(){
         $( "#hamburger, #prefs, .hide, body > header" ).toggleClass( 'open' );
+        $( '#contact' ).removeClass( 'show' );
 
         if( $( this ).hasClass( 'open' ) ){
             swiper.params.allowSwipeToPrev = false;
@@ -27,11 +31,12 @@ $( document ).ready( function(){
         alert( 'Thanks!' )
     } );
 
-    $( '#lnk_contact' ).click( function(){
+    $( '#lnk_contact' ).click( function( e ){
+        e.preventDefault();
         $( '#contact' ).addClass( 'show' );
     } );
 
-    $( '#contact button' ).click( function(){
+    $( '#contact button, #contact a' ).click( function(){
         $( '#contact' ).removeClass( 'show' );
     } );
 
@@ -57,12 +62,18 @@ $( document ).ready( function(){
     $( '#box_price' ).change( function(){
         external = !$( this ).prop( 'checked' );
         $.cookie( 'external', external, { path : "/", expires : 300 } );
+
         checkPrices();
     } );
 
     $( '#sel_lang' ).change( function(){
         $( '#opt_lang' ).text( $( this ).val() );
         $.cookie( 'language', $( this ).val(), { path : "/", expires : 300 } );
+
+        if( loaded )
+            $( '.temporary' ).slideDown().delay( 9999 ).slideUp();
+        else
+            loaded = true;
     } );
 
     $( '#lnk_prev, #lnk_next' ).click( function( e ){
@@ -107,13 +118,14 @@ $( document ).ready( function(){
             swiper.params.allowSwipeToNext = false;
         }
         swiper.update();
+        swiper.slideTo( 0 );
 
     } ).trigger( 'resize' );
 
     $( 'time' ).each( function( index ){
         var date = new Date( $( this ).attr( 'datetime' ) );
         if( date.setHours( 0, 0, 0, 0 ) === today.setHours( 0, 0, 0, 0 ) ){
-            $( this ).text( todayString );
+            $( this ).text( $( 'html' ).attr( 'lang' ) === 'en' ? 'Today' : 'Vandaag' );
             swiper.slideTo( index );
         }
     } );

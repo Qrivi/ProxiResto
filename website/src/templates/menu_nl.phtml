@@ -38,7 +38,9 @@
 
         <header>
             <section id="top">
-                <h1>Studentenrestaurant <span>Campus Proximus</span></h1>
+                <a href="<?php echo $root; ?>" class="internal">
+                    <h1>Studentenrestaurant <span>Campus Proximus</span></h1>
+                </a>
                 <div id="hamburger"><span>&nbsp;</span></div>
             </section>
         </header>
@@ -376,6 +378,9 @@
                             <span id="opt_lang">nl</span>
                             <label for="sel_lang">Voorkeurstaal</label>
                         </li>
+                        <li class="needcookie disabled temporary">
+                            <a href="<?php echo $root; ?>" class="internal">Taal meteen toepassen</a>
+                        </li>
                     </ul>
                     <p class="note">
                         Je voorkeurstaal wordt gebruikt wanneer je gewenste taal niet in het webadres vermeld wordt.
@@ -395,7 +400,7 @@
                     <h3>Vrijwaringsclausule</h3>
                     <ul>
                         <li>
-                            <a id="lnk_contact">Probleem of fout melden</a>
+                            <a id="lnk_contact" target="_blank" href="http://m.me/Qrivi">Probleem of fout melden</a>
                         </li>
                         <li>
                             <a id="lnk_donate" target="_blank" href="https://www.paypal.me/Qrivi">
@@ -414,17 +419,19 @@
                 <h2 class="h">Contacteer de developer</h2>
 
                 <ul>
-                    <li>
-                        <a href="mailto:kristof-DOT-dewilde-AT-student-DOT-ucll-DOT-be" class="mail">E-mail</a>
+                    <li class="twitter">
+                        <a href="http://twitter.com/Qrivi" target="_blank" title="Twitter">Twitter</a>
                     </li>
-                    <li>
-                        <a href="http://m.me/Qrivi" class="messenger" target="_blank">Messenger</a>
+                    <li class="mail">
+                        <a href="mailto:kristof-DOT-dewilde-AT-student-DOT-ucll-DOT-be" title="E-mail">E-mail</a>
                     </li>
-                    <li>
-                        <a href="http://twitter.com/Qrivi" class="twitter" target="_blank">Twitter</a>
+                    <li class="messenger">
+                        <a href="http://m.me/Qrivi" target="_blank" title="Messenger">Messenger</a>
                     </li>
                 </ul>
-                <button>Annuleren</button>
+                <button class="dismiss">
+                    <span>Annuleren</span>
+                </button>
             </section>
 
             <div class="swiper-pagination hide"></div>
@@ -443,6 +450,9 @@
             </nav>
         </footer>
 
+        <script type="text/javascript">
+            document.body.className = "loading";
+        </script>
         <script type="text/javascript"
                 src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript"
