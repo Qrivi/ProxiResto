@@ -52,7 +52,7 @@
         switch( $lang ){
             case 'nl':
             case 'en':
-                $content = 'text/html; charset=iso-8859-1'; // utf-8 not working on host server :/
+                $content = 'text/html; charset=utf-8';
                 $response = $this->view->render( $response, 'menu_' . $lang . '.phtml', [
                     'request' => $request,
                     'week'    => $week,
@@ -61,7 +61,7 @@
                 ] );
                 break;
             case 'api':
-                $content = 'application/json; charset=iso-8859-1'; // utf-8 not working on host server :/
+                $content = 'application/json; charset=utf-8';
                 $response = $this->view->render( $response, 'api.phtml', [
                     'menu'    => $menu
                 ] );
