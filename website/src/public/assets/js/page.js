@@ -1,6 +1,5 @@
 var today = new Date();
 var external = false;
-var loaded = false;
 var swiper;
 
 $( document ).ready( function(){
@@ -16,9 +15,9 @@ $( document ).ready( function(){
     $( 'body, main' ).css( 'overflow-x', 'hidden' );
 
     $( '#hamburger' ).click( function(){
-        $( "#hamburger, #prefs, .hide, body > header" ).toggleClass( 'open' );
+        $( '#hamburger, #prefs, .hide, body > header' ).toggleClass( 'open' );
         $( '#contact' ).removeClass( 'show' );
-        $( '.temporary' ).slideUp();
+        $( '#set_lang' ).slideUp();
 
         if( $( this ).hasClass( 'open' ) ){
             swiper.params.allowSwipeToPrev = false;
@@ -59,7 +58,7 @@ $( document ).ready( function(){
 
     $( '#box_cookie' ).change( function(){
         if( $( this ).prop( 'checked' ) ){
-            $.cookie( 'cookies', 'harambe was an inside job', { path : "/", expires : 300 } );
+            $.cookie( 'cookies', 'harambe_was_an_inside_job', { path : "/", expires : 300 } );
             $( '.needcookie' ).removeClass( 'disabled' );
             $( '.needcookie select, .needcookie input' ).prop( 'disabled', false );
         }else{
@@ -83,12 +82,8 @@ $( document ).ready( function(){
 
     $( '#sel_lang' ).change( function(){
         $( '#opt_lang' ).text( $( this ).val() );
+        $( '#set_lang' ).slideDown();
         $.cookie( 'language', $( this ).val(), { path : "/", expires : 300 } );
-
-        if( loaded )
-            $( '.temporary' ).slideDown();
-        else
-            loaded = true;
     } );
 
     $( '#lnk_prev, #lnk_next' ).click( function( e ){

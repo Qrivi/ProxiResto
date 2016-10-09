@@ -34,6 +34,11 @@
         $date = date( 'y' );
         $lang = $request->getAttribute( 'lang' );
 
+        if( $lang == 'app' ){
+            $lang = empty( $_COOKIE['language'] ) ? 'nl' : $_COOKIE['language'];
+            return $response->withRedirect( $request->getUri()->getBaseUrl() . '/' . $lang . '/app', 302 );
+        }
+
         $week = date( 'W' );
         $year = ( $week > 35 ? ( $date . '-' . ( $date + 1 ) ) : ( ( $date - 1 ) . '-' . $date ) );
 

@@ -385,12 +385,8 @@ main{
             opacity : .25;
           }
 
-          &.temporary{
-            display : none;
-          }
-
-          &:not(:last-of-type){
-            border-bottom : solid 1px rgba(255, 255, 255, .05);
+          &:not(:first-of-type){
+            border-top : solid 1px rgba(255, 255, 255, .05);
           }
 
           a{
@@ -418,6 +414,10 @@ main{
             width          : 30px;
             margin         : 0 5px 0 0;
             text-align     : center;
+          }
+
+          &#set_lang{
+            display : none;
           }
 
           input[type=checkbox]{
