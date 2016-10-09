@@ -28,8 +28,22 @@ $( document ).ready( function(){
         }
     } );
 
-    $( '#lnk_donate' ).click( function(){
-        alert( 'Thanks!' )
+    $( 'a.internal' ).click( function( e ){
+        e.preventDefault();
+        window.location = $( this ).attr( 'href' );
+    } );
+
+    $( '#lnk_donate' ).click( function( e ){
+        e.preventDefault();
+
+        var href = $( this ).attr( 'href' );
+        var root = $( this ).attr( 'data-root' );
+
+        $( 'body' ).append( '<img src="' + root + '/public/assets/img/like.svg">' );
+
+        setTimeout( function(){
+            window.location = href;
+        }, 750 );
     } );
 
     $( '#lnk_contact' ).click( function( e ){
