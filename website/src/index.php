@@ -27,7 +27,32 @@
         $week = date( 'W' );
         $year = ( $week > 35 ? ( $date . '-' . ( $date + 1 ) ) : ( ( $date - 1 ) . '-' . $date ) );
 
-        return $response->withRedirect( $request->getUri()->getBaseUrl() . "/{$lang}/{$year}/{$week}", 200 );
+        return $response->withRedirect( $request->getUri()->getBaseUrl() . "/{$lang}/{$year}/{$week}", 302 );
+    } );
+
+    $app->get( '/{lang}', function ( Request $request, Response $response ){
+        $date = date( 'y' );
+        $lang = $request->getAttribute( 'lang' );
+
+        $week = date( 'W' );
+        $year = ( $week > 35 ? ( $date . '-' . ( $date + 1 ) ) : ( ( $date - 1 ) . '-' . $date ) );
+
+        return $response->withRedirect( $request->getUri()->getBaseUrl() . "/{$lang}/{$year}/{$week}", 302 );
+    } );
+
+    $app->get( '/{lang}/{year}', function ( Request $request, Response $response ){
+        $week = date( 'W' );
+        $year = $request->getAttribute( 'year' );
+        $lang = $request->getAttribute( 'lang' );
+
+        if( $year == 'app' ){
+            $response = $this->view->render( $response, 'app_' . $lang . '.phtml', [
+                'request' => $request
+            ] );
+            return $response->withHeader( 'Content-Type', 'text/html; charset=utf-8' );
+        }
+
+        return $response->withRedirect( $request->getUri()->getBaseUrl() . "/{$lang}/{$year}/{$week}", 302 );
     } );
 
     $app->get( '/{lang}/{year}/{week}', function ( Request $request, Response $response ){
@@ -63,7 +88,7 @@
             case 'api':
                 $content = 'application/json; charset=utf-8';
                 $response = $this->view->render( $response, 'api.phtml', [
-                    'menu'    => $menu
+                    'menu' => $menu
                 ] );
                 break;
             default:

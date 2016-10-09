@@ -18,6 +18,7 @@ $( document ).ready( function(){
     $( '#hamburger' ).click( function(){
         $( "#hamburger, #prefs, .hide, body > header" ).toggleClass( 'open' );
         $( '#contact' ).removeClass( 'show' );
+        $( '.temporary' ).slideUp();
 
         if( $( this ).hasClass( 'open' ) ){
             swiper.params.allowSwipeToPrev = false;
@@ -71,7 +72,7 @@ $( document ).ready( function(){
         $.cookie( 'language', $( this ).val(), { path : "/", expires : 300 } );
 
         if( loaded )
-            $( '.temporary' ).slideDown().delay( 9999 ).slideUp();
+            $( '.temporary' ).slideDown();
         else
             loaded = true;
     } );

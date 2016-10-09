@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+    <?php
+        $root = $request->getUri()->getBaseUrl();
+    ?>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable"
+              content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style"
+              content="default">
+        <meta name="format-detection"
+              content="telephone=no">
+
+        <title>ProxiResto</title>
+
+        <link rel="shortcut icon" href="<?php echo $root; ?>/public/assets/img/_icon/icon.ico" type="image/x-icon">
+        <link rel="icon" href="<?php echo $root; ?>/public/assets/img/_icon/icon.png">
+        <link rel="apple-touch-icon" href="<?php echo $root; ?>/public/assets/img/_icon/icon57.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $root; ?>/public/assets/img/_icon/icon76.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="<?php echo $root; ?>/public/assets/img/_icon/icon120.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $root; ?>/public/assets/img/_icon/icon152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $root; ?>/public/assets/img/_icon/icon180.png">
+
+        <link href="<?php echo $root; ?>/public/assets/img/_splash/splash1242x2148.png"
+              media="(device-width: 414px) and (device-height: 736px)
+             and (-webkit-device-pixel-ratio: 3)
+             and (orientation: portrait)"
+              rel="apple-touch-startup-image">
+        <link href="<?php echo $root; ?>/public/assets/img/_splash/splash1182x2208.png"
+              media="(device-width: 414px) and (device-height: 736px)
+             and (-webkit-device-pixel-ratio: 3)
+             and (orientation: landscape)"
+              rel="apple-touch-startup-image">
+        <link href="<?php echo $root; ?>/public/assets/img/_splash/splash750x1294.png"
+              media="(device-width: 375px) and (device-height: 667px)
+             and (-webkit-device-pixel-ratio: 2)"
+              rel="apple-touch-startup-image">
+        <link href="<?php echo $root; ?>/public/assets/img/_splash/splash640x1096.png"
+              media="(device-width: 320px) and (device-height: 568px)
+             and (-webkit-device-pixel-ratio: 2)"
+              rel="apple-touch-startup-image">
+
+        <script type="text/javascript">
+            if( window.matchMedia( '(display-mode: standalone)' ).matches || window.navigator.standalone )
+                window.location = '<?php echo $root; ?>';
+        </script>
+
+        <link rel="stylesheet" media="screen" href="<?php echo $root; ?>/public/assets/css/webapp.css">
+    </head>
+
+    <body style="background-image: url('<?php echo $root; ?>/public/assets/img/bg<?php echo date( 'g' ); ?>.jpg')">
+
+        <header>
+            <section id="top">
+                <a href="<?php echo $root; ?>" class="internal">
+                    <h1>Studentenrestaurant <span>Campus Proximus</span></h1>
+                </a>
+            </section>
+        </header>
+
+        <main>
+            <section id="ios">
+                <h2 class="h">Installeren op iOS</h2>
+
+                <p>
+                    Voeg deze pagina toe aan je beginscherm om gemakkelijk het menu van de week te kunnen raadplegen!
+                </p>
+
+                <aside>
+                    <figure>
+                        <img alt="Installeren op iOS" src="<?php echo $root; ?>/public/assets/img/scrn_iOS_nl.png">
+                    </figure>
+                    <ol>
+                        <li>
+                            Bezoek deze pagina in Safari
+                        </li>
+                        <li>
+                            Tik onderaan de pagina op <img alt="Delen"
+                                                           src="<?php echo $root; ?>/public/assets/img/scrn_iOS_btn.svg">
+                        </li>
+                        <li>
+                            Kies "Zet in beginscherm"
+                        </li>
+                        <li>
+                            En klaar!
+                        </li>
+                    </ol>
+                    <p>
+                        De webapp zal altijd starten op het menu van de dag! Snel en handig!
+                    </p>
+                </aside>
+            </section>
+            <section id="android">
+                <h2 class="h">Installeren op Android</h2>
+
+                <p>
+                    Voeg deze pagina toe aan je startscherm om gemakkelijk het menu van de week te kunnen raadplegen!
+                </p>
+
+                <aside>
+                    <figure>
+                        <img alt="Installeren op iOS" src="<?php echo $root; ?>/public/assets/img/scrn_Android_nl.png">
+                    </figure>
+                    <ol>
+                        <li>
+                            Bezoek deze pagina in Chrome
+                        </li>
+                        <li>
+                            Tik bovenaan rechts op <img alt="Opties"
+                                                        src="<?php echo $root; ?>/public/assets/img/scrn_Android_btn.svg">
+                        </li>
+                        <li>
+                            Kies "Toevoegen aan startscherm"
+                        </li>
+                        <li>
+                            En klaar!
+                        </li>
+                    </ol>
+                    <p>
+                        De webapp zal altijd starten op het menu van de dag! Snel en handig!
+                    </p>
+                </aside>
+            </section>
+        </main>
+
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo $root; ?>/public/assets/js/app.js"></script>
+    </body>
+</html>

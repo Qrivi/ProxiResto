@@ -18,24 +18,23 @@
         <meta name="keywords"
               content="ucll, uc, leuven, limburg, campus, proximus, restaurant, cafetaria, horeservice, omnomnom">
         <meta name="viewport"
-              content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui">
-        <meta name="apple-mobile-web-app-capable"
-              content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style"
-              content="default">
+              content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta name="format-detection"
               content="telephone=no">
 
         <title>ProxiResto</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="<?php echo $root; ?>/public/assets/img/icon.ico">
-        <link rel="icon" type="image/png" href="<?php echo $root; ?>/public/assets/img/icon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo $root; ?>/public/assets/img/_icon/icon.ico">
+        <link rel="icon" type="image/png" href="<?php echo $root; ?>/public/assets/img/_icon/icon.png">
 
         <link rel="stylesheet" media="screen" href="<?php echo $root; ?>/public/assets/css/screen.css">
         <link rel="stylesheet" media="print" href="<?php echo $root; ?>/public/assets/css/print.css">
     </head>
 
     <body style="background-image: url('<?php echo $root; ?>/public/assets/img/bg<?php echo date( 'g' ); ?>.jpg')">
+        <script type="text/javascript">
+            document.body.className = "loading";
+        </script>
 
         <header>
             <section id="top">
@@ -392,7 +391,7 @@
                     <h3>Webapplicatie</h3>
                     <ul>
                         <li>
-                            <a href="<?php echo $root; ?>/app">Installatie-instructies</a>
+                            <a href="<?php echo $root; ?>/nl/app">Installatie-instructies</a>
                         </li>
                     </ul>
                 </article>
@@ -451,9 +450,6 @@
             </nav>
         </footer>
 
-        <script type="text/javascript">
-            document.body.className = "loading";
-        </script>
         <script type="text/javascript"
                 src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript"

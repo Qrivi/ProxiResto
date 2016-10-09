@@ -1,0 +1,151 @@
+@charset "UTF-8";
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400";
+@import "reset.css";
+
+// colors
+$dark : rgb(11, 11, 11);
+
+html{
+  box-sizing : border-box;
+}
+*, *:before, *:after{
+  box-sizing                  : inherit;
+  user-select                 : none !important;
+  -webkit-touch-callout       : none !important;
+  -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+  -ms-overflow-style          : none;
+}
+::-webkit-scrollbar{
+  width : 0 !important;
+}
+a{
+  color           : inherit;
+  cursor          : pointer;
+  text-decoration : none;
+}
+.h{
+  display : none !important;
+}
+.hide{
+  opacity    : 1 !important;
+  transition : opacity 500ms;
+
+  &.open{
+    opacity : 0 !important;
+  }
+}
+// --------------------------------------- //
+// --------------------------------------- //
+body{
+  overflow-x      : auto;
+  position        : relative;
+  z-index         : 1;
+  background      : rgb(255, 255, 255) center center fixed;
+  background-size : cover;
+  min-height      : 100vh;
+  width           : 100vw;
+  font-family     : "Open Sans", Arial, sans-serif;
+  font-weight     : 300;
+  font-size       : .8em;
+  line-height     : 1.4em;
+  color           : $dark;
+  transition      : background-image 2s, opacity 2s;
+  opacity         : 1;
+
+  > header{
+    background : rgba(255, 255, 255, 0);
+    color      : rgb(255, 255, 255);
+    position   : relative;
+    z-index    : 25;
+    display    : block;
+    overflow   : hidden;
+    width      : 100vw;
+    height     : 80px;
+
+    #top{
+      display         : flex;
+      align-items     : center;
+      justify-content : space-between;
+      width           : 90vw;
+      max-width       : 1600px;
+      height          : 100%;
+      margin          : 0 auto;
+
+      h1{
+        font-size : 2em;
+        cursor    : pointer;
+
+        span{
+          display     : block;
+          font-size   : .6em;
+          text-indent : 20px;
+        }
+      }
+    }
+  }
+}
+main{
+  position   : absolute;
+  top        : 0;
+  left       : 0;
+  z-index    : 1;
+  width      : 100vw;
+  height     : 100vh;
+  overflow   : hidden;
+  background : rgba(22, 22, 22, .75);
+
+  section{
+    display: none;
+    width       : 100%;
+    max-width   : 600px;
+    margin      : 0 auto;
+    padding-top : 80px;
+    color       : #ffffff;
+
+    p{
+      padding     : 12px 12% 0;
+      font-size   : 1.2em;
+      line-height : 1.4em;
+      font-weight : 400;
+    }
+
+    aside{
+      position   : relative;
+      margin-top : 20px;
+
+      p{
+        padding : 10px;
+      }
+
+      ol{
+        padding    : 22% 10px 22px;
+        list-style : decimal inside;
+        font-size  : 1.1em;
+
+        li{
+          padding : 5px 0;
+
+          img{
+            display : inline-block;
+            height  : 1em;
+            cursor  : text;
+          }
+        }
+      }
+
+      figure{
+        float      : left;
+        margin     : 10px 20px 0 -120px;
+        width      : 70vw;
+        max-width  : 300px;
+        max-height : 70vh;
+        text-align : right;
+
+        img{
+          max-width  : 100%;
+          max-height : 100%;
+        }
+      }
+    }
+  }
+}
