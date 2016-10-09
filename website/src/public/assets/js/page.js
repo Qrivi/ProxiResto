@@ -55,7 +55,7 @@ $( document ).ready( function(){
         $( '#contact' ).removeClass( 'show' );
     } );
 
-    $( 'a.mail' ).attr( 'href', 'mailto:kristof.dewilde@student.ucll.be' );
+    $( '.mail a' ).attr( 'href', 'mailto:kristof.dewilde@student.ucll.be' );
 
     $( '#box_cookie' ).change( function(){
         if( $( this ).prop( 'checked' ) ){
