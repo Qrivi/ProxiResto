@@ -262,6 +262,14 @@ main{
         padding          : 7px 14px;
         transition       : background-color 750ms;
 
+        &:after{
+          content : " ";
+          speak   : none;
+          display : inline-block;
+          width   : 36px;
+          height  : 3px;
+        }
+
         &:hover{
           background-color : rgba(255, 255, 255, .7);
         }
@@ -308,7 +316,9 @@ main{
       }
 
       span{
-        float       : right;
+        position    : absolute;
+        bottom      : 7px;
+        right       : 14px;
         font-weight : 400;
       }
     }
