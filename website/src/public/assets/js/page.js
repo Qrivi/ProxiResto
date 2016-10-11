@@ -183,7 +183,8 @@ $( document ).ready( function(){
     if( /MSIE 10|rv:11.0|Edge/i.test( navigator.userAgent ) ){
         $( '#sel_lang' ).css( 'z-index', '-69' );
         $( '#opt_lang' ).click( function(){
-            //code to cycle thru options
+            $( '#sel_lang option:selected' ).removeAttr( 'selected' ).next( 'option' ).attr( 'selected', 'selected' );
+            $( '#sel_lang' ).trigger( 'change' );
         } );
     }
 
