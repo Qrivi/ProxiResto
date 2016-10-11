@@ -184,6 +184,18 @@ $( document ).ready( function(){
     if( window.matchMedia( '(display-mode: standalone)' ).matches || window.navigator.standalone )
         $( '.mobile' ).hide();
 
+    if( /MSIE 10|rv:11.0|Edge/i.test( navigator.userAgent ) ){
+        $( '#sel_lang' ).css( 'z-index', '-69' );
+        $( '#opt_lang' ).click( function(){
+            $( '#sel_lang option:selected' ).removeAttr( 'selected' ).next( 'option' ).attr( 'selected', 'selected' );
+            $( '#sel_lang' ).trigger( 'change' );
+        } );
+        $( '#contact li, #contact button' ).each( function(){
+            var uri = $( this ).css( 'background-image' ).replace( '.png', '_ie.png' );
+            $( this ).css( 'background-image', uri );
+        } );
+    }
+
     window.scrollTo( 0, 1 );
 } );
 
