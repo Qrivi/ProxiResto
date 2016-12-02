@@ -585,6 +585,10 @@ main{
 }
 @media only screen and (max-width : 1099px) and (min-width : 650px) {
 
+  main #prefs article.mobile{
+    display : block;
+  }
+
   #menu{
     width   : calc(100vw + 100vw / 5 * 3.2);
     margin  : 0;
