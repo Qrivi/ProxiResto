@@ -2,7 +2,7 @@
 @import "https://fonts.googleapis.com/css?family=Open+Sans:300,400";
 @import "reset.css";
 
-// colors
+                 // colors
 $dark : rgb(11, 11, 11);
 $blue : #007aff; //also in svg!
 $lightblue : #3c99ff;
@@ -62,8 +62,30 @@ body > img{
     z-index : 0;
   }
 }
-// --------------------------------------- //
-// --------------------------------------- //
+                 // --------------------------------------- //
+                 // --------------------------------------- //
+#ad{
+  overflow   : hidden;
+  position   : fixed;
+  z-index    : 420;
+  top        : 0;
+  left       : 0;
+  width      : 100vw;
+  height     : 100vh;
+  background : rgba(0, 0, 0, .69);
+  text-align : center;
+  padding    : 15vh 0 0;
+  color      : #ffffff;
+  cursor     : url('../img/icn_dismiss_ie.png'), auto;
+
+  a img{
+    display   : inline-block;
+    max-width : 100vw;
+    width     : 640px;
+  }
+}
+                 // --------------------------------------- //
+                 // --------------------------------------- //
 body{
   overflow-x      : auto;
   position        : relative;
@@ -226,7 +248,7 @@ body{
 main{
   width      : 100%;
   min-height : calc(100vh - 80px - 57px); // minus header minus footer
-  //overflow-x : hidden;
+             //overflow-x : hidden;
 
   #menu{
     position        : relative;
@@ -616,8 +638,8 @@ main{
     }
   }
 }
-// --------------------------------------- //
-// --------------------------------------- //
+                 // --------------------------------------- //
+                 // --------------------------------------- //
 
 .swiper-pagination{
   position   : absolute;
