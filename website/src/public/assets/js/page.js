@@ -22,8 +22,9 @@ $( document ).ready( function(){
         if( $( this ).hasClass( 'open' ) ){
             swiper.params.allowSwipeToPrev = false;
             swiper.params.allowSwipeToNext = false;
-        }else{
-            $( window ).trigger( 'resize' );
+        }else if( swiper.params.slidesPerView != 5 ){
+            swiper.params.allowSwipeToPrev = true;
+            swiper.params.allowSwipeToNext = true;
         }
     } );
 
@@ -36,7 +37,6 @@ $( document ).ready( function(){
         e.preventDefault();
 
         var href = $( this ).attr( 'href' );
-        var root = $( this ).attr( 'data-root' );
 
         $( 'body' ).append( '<img src="' + root + '/public/assets/img/like.svg">' );
 
@@ -58,13 +58,14 @@ $( document ).ready( function(){
 
     $( '#box_cookie' ).change( function(){
         if( $( this ).prop( 'checked' ) ){
-            $.cookie( 'cookies', 'harambe_was_an_inside_job', { path : "/", expires : 300 } );
+            $.cookie( 'cookies', 'carl_is_corrupt', { path : "/", expires : 300 } );
             $( '.needcookie' ).removeClass( 'disabled' );
             $( '.needcookie select, .needcookie input' ).prop( 'disabled', false );
         }else{
             $.removeCookie( 'cookies', { path : "/" } );
             $.removeCookie( 'external', { path : "/" } );
             $.removeCookie( 'language', { path : "/" } );
+            $.removeCookie( 'extra', { path : "/" } );
             $( '.needcookie' ).addClass( 'disabled' );
             $( '.needcookie select, .needcookie input' ).prop( 'disabled', true );
             $( '#box_price' ).prop( 'checked', true );
@@ -108,6 +109,7 @@ $( document ).ready( function(){
                 setTimeout( function(){
                     $( '#menu' ).removeClass( 'rotated' );
                     swiper.update();
+                    swiper.slideTo( 0 );
                 }, 150 );
             } );
         }, 300 );
