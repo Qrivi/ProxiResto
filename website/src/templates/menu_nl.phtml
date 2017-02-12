@@ -3,13 +3,8 @@
     <?php
         $root = $request->getUri()->getBaseUrl();
 
-        $prevweek = $week - 1;
-        $nextweek = $week + 1;
-
-        if( $week - 1 == 0 )
-            $prevweek = '../' . ( intval( substr( $year, -2, 2 ) ) - 2 ) . '-' . ( intval( substr( $year, -2, 2 ) ) - 1 ) . '/52';
-        else if( $week + 1 == 53 )
-            $nextweek = '../' . ( intval( substr( $year, -2, 2 ) ) + 1 ) . '-' . ( intval( substr( $year, -2, 2 ) ) + 2 ) . '/1';
+        $prevweek = $week - 1 == 0 ? 52 : $week - 1;
+        $nextweek = $week + 1 == 53 ? 1 : $week + 1;
     ?>
     <head>
         <meta charset="utf-8">
