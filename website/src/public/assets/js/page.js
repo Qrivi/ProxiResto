@@ -109,6 +109,7 @@ $( document ).ready( function(){
                 $( '#lnk_prev' ).attr( 'href', $( data ).find( '#lnk_prev' ).attr( 'href' ) );
                 $( '#lnk_next' ).attr( 'href', $( data ).find( '#lnk_next' ).attr( 'href' ) );
 
+                checkToday();
                 checkPrices();
                 setTimeout( function(){
                     $( '#menu' ).removeClass( 'rotated' );
@@ -148,14 +149,6 @@ $( document ).ready( function(){
         swiper.slideTo( 0 );
 
     } ).trigger( 'resize' );
-
-    $( 'time' ).each( function( index ){
-        var date = new Date( $( this ).attr( 'datetime' ) );
-        if( date.setHours( 0, 0, 0, 0 ) === today.setHours( 0, 0, 0, 0 ) ){
-            $( this ).text( $( 'html' ).attr( 'lang' ) === 'en' ? 'Today' : 'Vandaag' );
-            swiper.slideTo( index );
-        }
-    } );
 
     switch( window.location.hash.toLowerCase() ){
         case '#monday':
@@ -209,8 +202,19 @@ $( document ).ready( function(){
         } );
     }
 
+    checkToday();
     window.scrollTo( 0, 1 );
 } );
+
+function checkToday(){
+    $( 'time' ).each( function( index ){
+        var date = new Date( $( this ).attr( 'datetime' ) );
+        if( date.setHours( 0, 0, 0, 0 ) === today.setHours( 0, 0, 0, 0 ) ){
+            $( this ).text( $( 'html' ).attr( 'lang' ) === 'en' ? 'Today' : 'Vandaag' );
+            swiper.slideTo( index );
+        }
+    } );
+}
 
 function checkPrices(){
     var prices = $( '#menu li span' );
