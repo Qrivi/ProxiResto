@@ -8,7 +8,7 @@ $( document ).ready( function(){
         direction : 'horizontal',
         pagination : '.swiper-pagination',
         paginationClickable : true,
-        keyboardControl : true
+        keyboardControl : false
     } );
 
     $( 'body' ).removeClass( 'loading' );
@@ -113,6 +113,13 @@ $( document ).ready( function(){
                 }, 150 );
             } );
         }, 300 );
+    } );
+
+    $( document ).keydown( function( e ){
+        if( e.which == 37 )
+            $( '#lnk_prev' ).click();
+        else if( e.which == 39 )
+            $( '#lnk_next' ).click();
     } );
 
     $( window ).resize( function(){
