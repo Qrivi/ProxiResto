@@ -68,7 +68,7 @@ $( document ).ready( function(){
             $.removeCookie( 'extra', { path : "/" } );
             $( '.needcookie' ).addClass( 'disabled' );
             $( '.needcookie select, .needcookie input' ).prop( 'disabled', true );
-            $( '#box_price' ).prop( 'checked', true );
+            $( '#box_price' ).prop( 'checked', true ).trigger( 'change' );
             $( '#sel_lang' ).val( 'nl' );
             $( '#opt_lang' ).text( 'nl' );
         }
@@ -76,7 +76,9 @@ $( document ).ready( function(){
 
     $( '#box_price' ).change( function(){
         external = !$( this ).prop( 'checked' );
-        $.cookie( 'external', external, { path : "/", expires : 300 } );
+
+        if( !(!$.cookie( 'cookies' )) )
+            $.cookie( 'external', external, { path : "/", expires : 300 } );
 
         checkPrices();
     } );
@@ -84,7 +86,9 @@ $( document ).ready( function(){
     $( '#sel_lang' ).change( function(){
         $( '#opt_lang' ).text( $( this ).val() );
         $( '#set_lang' ).slideDown();
-        $.cookie( 'language', $( this ).val(), { path : "/", expires : 300 } );
+
+        if( !(!$.cookie( 'cookies' )) )
+            $.cookie( 'language', $( this ).val(), { path : "/", expires : 300 } );
     } );
 
     $( '#sel_lang' ).on( 'mousedown touchstart MSPointerDown', function( e ){
