@@ -24,7 +24,7 @@
         $date = date( 'y' );
         $lang = empty( $_COOKIE['language'] ) ? 'nl' : $_COOKIE['language'];
 
-        $week = date( 'W' );
+        $week = date( 'W' ) + ( date( 'N' ) < 6 ? 0 : 1 );
         $year = ( $week > 35 ? ( $date . '-' . ( $date + 1 ) ) : ( ( $date - 1 ) . '-' . $date ) );
 
         return $response->withRedirect( $request->getUri()->getBaseUrl() . "/{$lang}/{$year}/{$week}", 302 );
@@ -39,14 +39,14 @@
             return $response->withRedirect( $request->getUri()->getBaseUrl() . '/' . $lang . '/app', 302 );
         }
 
-        $week = date( 'W' );
+        $week = date( 'W' ) + ( date( 'N' ) < 6 ? 0 : 1 );
         $year = ( $week > 35 ? ( $date . '-' . ( $date + 1 ) ) : ( ( $date - 1 ) . '-' . $date ) );
 
         return $response->withRedirect( $request->getUri()->getBaseUrl() . "/{$lang}/{$year}/{$week}", 302 );
     } );
 
     $app->get( '/{lang}/{year}', function ( Request $request, Response $response ){
-        $week = date( 'W' );
+        $week = date( 'W' ) + ( date( 'N' ) < 6 ? 0 : 1 );
         $year = $request->getAttribute( 'year' );
         $lang = $request->getAttribute( 'lang' );
 
